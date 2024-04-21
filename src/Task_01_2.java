@@ -11,7 +11,7 @@ import db.DBManager;
 import db.Employee;
 
 @WebServlet(value = "/task_1_2")
-public class Task_1_2 extends HttpServlet {
+public class Task_01_2 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");

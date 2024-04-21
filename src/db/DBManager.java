@@ -6,6 +6,7 @@ public class DBManager {
     public static ArrayList<Student> students = new ArrayList<>();
     public static ArrayList<Employee> employees = new ArrayList<>();
     public static ArrayList<Footballer> players = new ArrayList<>();
+    public static ArrayList<Item> items = new ArrayList<>();
     public static ArrayList<Task> tasks = new ArrayList<>();
 
     static {

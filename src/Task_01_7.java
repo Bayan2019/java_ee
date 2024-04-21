@@ -1,5 +1,4 @@
 import db.DBManager;
-import db.Employee;
 import db.Footballer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(value = "/task_1_7")
-public class Task_1_7 extends HttpServlet {
+public class Task_01_7 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

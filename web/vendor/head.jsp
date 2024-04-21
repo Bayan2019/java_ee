@@ -23,4 +23,36 @@
     <title>Java EEs</title>
 <%--    <link rel="stylesheet" href="./task.css" />--%>
     <%@include file="/links/links.jsp"%>
+    <style>
+        #headerSearch {
+            background-color: <%=headerColor%>;
+            color: <%=headerBackground%>;
+            border-radius: 5px;
+        }
+        #headerSearch:hover {
+            background-color: greenyellow;
+        }
+        main {
+            padding: 12px;
+        }
+        main form {
+            border: <%=fieldsetColor%> solid;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        main form button {
+            font-weight: 700;
+            padding: 3px 12px;
+            margin: 4px;
+            border-radius: 5px;
+            background-image: radial-gradient(<%=fieldsetLegend%>, <%=headerColor%>);
+            color: <%=bodyBackground%>;
+            border: <%=headerColor%> solid 3px;
+        }
+        main form button:hover {
+            background-image: radial-gradient(<%=headerColor%>, <%=fieldsetLegend%>);
+            color: <%=bodyBackground%>;
+            border: <%=fieldsetLegend%> solid 3px;
+        }
+    </style>
 </head>

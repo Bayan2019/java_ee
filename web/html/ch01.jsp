@@ -2,7 +2,7 @@
 <html lang="en">
     <%@include file="../vendor/head.jsp"%>
     <body>
-        <%@include file="../vendor/header.jsp"%>
+        <%@include file="../vendor/headerMain.jsp"%>
         <main>
             <h2>Installing and Running Java EE</h2>
             <h3><a href="task_1_1">Task 1</a></h3>
@@ -116,6 +116,7 @@
                     <option value="Real Sociedad">Real Sociedad</option>
                     <option value="Barcelona">Barcelona</option>
                 </select>
+                <br />
                 <label class ='mb-3'>SALARY: </label>
                 <input type ='text' name = 'playerSalary' class='form-control w-50 mb-3' />
                 <label class ='mb-3'>TRANSFER PRICE: </label>

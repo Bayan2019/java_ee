@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(value = "/task_1_3")
-public class Task_1_3 extends HttpServlet {
+public class Task_01_3 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

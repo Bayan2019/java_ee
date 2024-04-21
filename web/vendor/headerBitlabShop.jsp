@@ -10,10 +10,14 @@
 <%--        <img src="https://raw.githubusercontent.com/Bayan2019/project02/main/images/logos3.png" alt="SAPAR" />--%>
 <%--        <h1>Java EE</h1>--%>
 <%--</div>--%>
-<nav class="navbar navbar-expand-sm" style="background-color: <%=headerBackground%>; color: <%=headerColor%>;">
+<%
+    String navbarBackground="#249474";
+    String navbarColor="#a4c1ad";
+%>
+<nav class="navbar navbar-expand-sm" style="background-color: <%=navbarBackground%>; color: <%=navbarColor%>;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/html/main.jsp">
-            <img src="https://raw.githubusercontent.com/Bayan2019/project02/main/images/logos3.png" alt="SAPAR" height="35" />
+        <a class="navbar-brand" style="color: white" href="/">
+            BITLAB SHOP
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,19 +25,9 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link" href="/html/ch01.jsp">Basics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 3</a>
+                    <a class="nav-link" href="#">ADD ITEM</a>
                 </li>
             </ul>
-            <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>
