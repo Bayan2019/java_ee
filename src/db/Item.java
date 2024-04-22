@@ -1,14 +1,14 @@
 package db;
 
 public class Item {
-    Long id;
-    String name;
-    double price;
-    int amount;
+    public int id;
+    public String name;
+    public double price;
+    public int amount;
 
     public Item() {}
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id=id;
     }
     public void setName(String name) {
@@ -21,14 +21,14 @@ public class Item {
         this.amount=amount;
     }
 
-    public Item(Long id, String name, double price, int amount) {
+    public Item(int id, String name, double price, int amount) {
         this.setId(id);
         this.setName(name);
         this.setPrice(price);
         this.setAmount(amount);
     }
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
     public String getName() {
