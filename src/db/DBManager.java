@@ -40,6 +40,19 @@ public class DBManager {
         return players;
     }
 
+    static {
+        items.add(new Item(Long.valueOf(1), "Iphone 13 Pro Max", 450000, 10));
+        items.add(new Item(Long.valueOf(2), "XIAOMI REDMI NOTE 8", 82000, 20));
+        items.add(new Item(Long.valueOf(3), "Oppo 3 Model X", 350000, 15));
+        items.add(new Item(Long.valueOf(4), "Mackbook Pro M1 13", 750000, 15));
+        items.add(new Item(Long.valueOf(5), "ASUS TUF Gaming", 340000, 7));
+    }
+
+    public static void addItem(Item item) { items.add(item); }
+    public static ArrayList<Item> getAllItems() {
+        return items;
+    }
+
     public static void addTask(Task task) {
         tasks.add(task);
     }
