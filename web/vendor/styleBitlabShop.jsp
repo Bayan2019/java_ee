@@ -25,6 +25,9 @@
     .navbar-brand {
         color: <%=brandColor%>;
     }
+    main {
+        padding: 5px;
+    }
     button {
         color: <%=navbarColor%>;
         background-color: <%=navbarBackground%>;
@@ -39,9 +42,14 @@
     }
     td .btn-sm:hover {
         color: <%=detailsColor%>;
-        background-color: <%=navbarBackground%>;
+        background-color: <%=brandColor%>;
     }
     form {
-        margin: 5px;
+        border-radius: 5px;
+        border: <%=brandColor%> solid 2px;
+        padding: 6px;
+    }
+    h3 {
+        color: <%=brandColor%>;
     }
 </style>

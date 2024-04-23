@@ -39,7 +39,7 @@
                         <td><%=item.getName()%></td>
                         <td><%=item.getPrice()%></td>
                         <td><%=item.getAmount()%></td>
-                        <td><a href="/bitlab_shop/details" class="btn btn-sm">DETAILS</a></td>
+                        <td><a href="/bitlab_shop/details?id=<%=item.getId()%>" class="btn btn-sm">DETAILS</a></td>
                     </tr>
                 <%
                         }

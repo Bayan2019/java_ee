@@ -1,4 +1,4 @@
-<%--
+<%@ page import="db.Item" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/23/24
@@ -15,15 +15,19 @@
     <body>
         <%@include file="/vendor/headerBitlabShop.jsp"%>
         <main>
-            <form action="/bitlab_shop_add_item" method="post">
-                <label>NAME</label>
-                <input type="text" name="itemName" />
-                <label>PRICE</label>
-                <input type="number" step="0.01" name="itemPrice" />
-                <label>AMOUNT</label>
-                <input type="number" name="itemAmount" />
-                <button>ADD ITEM</button>
-            </form>
+            <%
+                Item item = (Item) request.getAttribute("item");
+                if (item!=null) {
+            %>
+            <h2>NAME</h2>
+            <h3><%=item.getName()%></h3>
+            <h2>PRICE</h2>
+            <h3><%=item.getPrice()%></h3>
+            <h2>AMOUNT</h2>
+            <h3><%=item.getAmount()%></h3>
+            <%
+                }
+            %>
         </main>
     </body>
 </html>

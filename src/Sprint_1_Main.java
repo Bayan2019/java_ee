@@ -1,3 +1,5 @@
+import db.DBManager;
+import db.Task;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -6,15 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import db.DBManager;
-import db.Item;
-
-@WebServlet(value = "/bitlab_shop/details")
-public class Task_02_Details extends HttpServlet {
+@WebServlet(value = "/sprint_1")
+public class Sprint_1_Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("item", DBManager.getItem(id));
-        request.getRequestDispatcher("/html/bitlabShopDetails.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/sprint1Main.jsp").forward(request, response);
     }
 }

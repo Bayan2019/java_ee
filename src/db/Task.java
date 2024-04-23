@@ -5,6 +5,7 @@ public class Task {
     String name;
     String description;
     String deadlineDate;
+    Boolean completed;
 
     public void setId(Long id) {
         this.id=id;
@@ -18,13 +19,15 @@ public class Task {
     public void setDeadlineDate(String deadlineDate) {
         this.deadlineDate=deadlineDate;
     }
+    public void setCompleted(Boolean completed) {this.completed=completed; }
 
     public Task() {}
-    public Task(Long id, String name, String description, String deadlineDate) {
+    public Task(Long id, String name, String description, String deadlineDate, Boolean completed) {
         this.setId(id);
         this.setName(name);
         this.setDescription(description);
         this.setDeadlineDate(deadlineDate);
+        this.setCompleted(completed);
     }
 
     public Long getId() {
@@ -39,4 +42,5 @@ public class Task {
     public String getDeadlineDate() {
         return this.deadlineDate;
     }
+    public Boolean getCompleted() { return this.completed; }
 }

@@ -33,6 +33,7 @@
         border: <%=fieldsetColor%> solid;
         border-radius: 10px;
         padding: 5px;
+        margin: 3px;
     }
     main form button {
         font-weight: 700;
