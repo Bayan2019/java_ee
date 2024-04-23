@@ -1,3 +1,5 @@
+package ch02.bitlabShop;
+
 import db.DBManager;
 
 import db.Item;
