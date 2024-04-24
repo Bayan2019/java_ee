@@ -12,7 +12,6 @@ import java.io.IOException;
 public class Task_02_Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        request.setAttribute("items", DBManager.getAllItems());
         request.getRequestDispatcher("/html/bitlabShopMain.jsp").forward(request, response);
     }
 }

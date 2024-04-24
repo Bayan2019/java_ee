@@ -19,11 +19,12 @@ public class Sprint_1_Save extends HttpServlet {
 
         String name = request.getParameter("taskName");
         String description = request.getParameter("taskDescription");
+
+        System.out.println(description);
+
         String deadlineDate = request.getParameter("taskDeadline");
         String status = request.getParameter("taskStatus");
-        System.out.println(status);
         Boolean completed = status.equals("yes");
-        System.out.println(completed);
 
         Task task = DBManager.getTask(id);
         task.setName(name);

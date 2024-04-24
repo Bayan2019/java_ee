@@ -9,13 +9,13 @@
         <%@include file="../vendor/headerMain.jsp"%>
         <main>
             <h2>Installing and Running Java EE</h2>
-            <h3><a href="task_1_1">Task 1</a></h3>
+            <h3><a href="/task_1_1">Task 1</a></h3>
             <p>
                 Create an application using servlets
                 that displays the word  HELLO BITLAB 10 times in
                 the first level header <code>&lth1&gt</code>.
             </p>
-            <h3><a href="task_1_2">Task 2</a></h3>
+            <h3><a href="/task_1_2">Task 2</a></h3>
             <p>
                 Create a servlet that generates a table with a specific list of users.
                 And the list is taken from an array or list (<code>ArrayList</code>).

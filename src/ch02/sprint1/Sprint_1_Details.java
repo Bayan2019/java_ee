@@ -20,32 +20,4 @@ public class Sprint_1_Details extends HttpServlet {
         request.setAttribute("task", DBManager.getTask(id));
         request.getRequestDispatcher("/html/sprint1Details.jsp").forward(request, response);
     }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Long id = Long.parseLong(request.getParameter("id"));
-        String action = request.getParameter("action");
-
-        if (action=="save") {
-            String name = request.getParameter("taskName");
-            String description = request.getParameter("taskDescription");
-            String deadlineDate = request.getParameter("taskDeadline");
-            String status = request.getParameter("taskStatus");
-            Boolean completed = (status == "yes");
-
-            Task task = DBManager.getTask(id);
-            task.setName(name);
-            task.setDescription(description);
-            task.setDeadlineDate(deadlineDate);
-            task.setCompleted(completed);
-
-            int i = DBManager.getTaskIndex(id);
-            System.out.println(i);
-            DBManager.updateTasks(i, task);
-
-        } else if (action=="delete") {
-            DBManager.deleteTask(id);
-        }
-        request.getRequestDispatcher("/html/sprint1Main.jsp").forward(request, response);
-    }
 }

@@ -14,7 +14,6 @@ import java.io.IOException;
 public class Sprint_1_AddTask extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        request.setAttribute("items", DBManager.getAllItems());
         String name = request.getParameter("taskName");
         String description = request.getParameter("taskDescription");
         String deadline = request.getParameter("taskDeadline");

@@ -13,7 +13,7 @@
         <%@include file="/vendor/styleBitlabShop.jsp"%>
     </head>
     <body>
-        <%@include file="/vendor/headerBitlabShop.jsp"%>
+        <%@include file="/vendor/headerBitlab.jsp"%>
         <main>
             <form action="/bitlab_shop_add_item" method="post">
                 <label>NAME</label>

@@ -12,7 +12,7 @@
 <%--</div>--%>
 <nav class="navbar navbar-expand-sm" style="background-color: <%=headerBackground%>; color: <%=headerColor%>;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/sprint_1">
+        <a class="navbar-brand" href="/">
             <img src="https://raw.githubusercontent.com/Bayan2019/project02/main/images/logos3.png" alt="SAPAR" height="35" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">All Tasks</a>
+                    <a class="nav-link" href="/sprint_1">All Tasks</a>
                 </li>
             </ul>
 <%--            <form class="d-flex mt-3" role="search">--%>

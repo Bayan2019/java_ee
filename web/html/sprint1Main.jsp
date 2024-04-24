@@ -32,7 +32,8 @@
                             <label>NAME</label>
                             <input type="text" name="taskName" /> <br>
                             <label>DESCRIPTION</label>
-                            <input type="text" name="taskDescription" /> <br>
+                            <textarea name="taskDescription" class="form-control" style="height: 100px"></textarea>
+<%--                            <input type="text" name="taskDescription" /> <br>--%>
                             <label>DEADLINE</label>
                             <input type="date" name="taskDeadline" /> <br>
                         </div>
