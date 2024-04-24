@@ -2,49 +2,50 @@
 
 ## Installing and Running Java EE
 
-- [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_1.java)
-- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_2.java)
-- [Task 3](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_3.java)
-- [Task 4](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_4.java)
-- [Task 5](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_5.java)
-- [Task 6](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_6.java)
-- [Task 7](https://github.com/Bayan2019/java_ee/blob/master/src/Task_1_7.java)
+- [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_1.java)
+- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_2.java)
+- [Task 3](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_3.java)
+- [Task 4](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_4.java)
+- [Task 5](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_5.java)
+- [Task 6](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_6.java)
+- [Task 7](https://github.com/Bayan2019/java_ee/blob/master/src/ch01/Task_01_7.java)
 
 ## Java Server Pages
 
-- [Task 1]()
-- [Task 2]()
-- [Task 3]()
-- [Sprint Task 1]()
+- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch02/bitlabShop)
+- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch02/bitlabShop/Task_02_Details.java)
+- [Task 3](https://github.com/Bayan2019/java_ee/tree/master/src/ch02/bitlabNews)
+- [Sprint Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch02/sprint1)
 
 ## JDBC
 
-- [Task 1]()
-- [Task 2]()
+[//]: # (- [Task 1]&#40;&#41;)
+
+[//]: # (- [Task 2]&#40;&#41;)
 
 ## JDBC, continued
 
-- [Task 1]()
-- [Sprint Task 2]()
+[//]: # (- [Task 1]&#40;&#41;)
+
+[//]: # (- [Sprint Task 2]&#40;&#41;)
 
 ## JDBC -- Table Relationships
 
-- [Task 1]()
-- [Task 2]()
+[//]: # (- [Task 1]&#40;&#41;)
+
+[//]: # (- [Task 2]&#40;&#41;)
 
 ## Cookies
 
-- [Task 1]()
-- [Task 2]()
-- [Task 3]()
-- [Sprint Task 3]()
+[//]: # (- [Task 1]&#40;&#41;)
+
+[//]: # (- [Task 2]&#40;&#41;)
+
+[//]: # (- [Task 3]&#40;&#41;)
+
+[//]: # (- [Sprint Task 3]&#40;&#41;)
 
 ## Sessions
 
-- [Task 1]()
-- [Task 2]()
-- [Task 3]()
 
 ## Authentication, Registration, Adding a Blog, and Comments
-
-- [Sprint Task 4]()
