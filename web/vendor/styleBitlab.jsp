@@ -13,7 +13,7 @@
     String detailsColor="#f0e0d1";
 %>
 <link rel="icon" type="image/x-icon" href="https://bitlab.kz/images/favicons/android-chrome-144x144.png" />
-<title>BITLAB SHOP</title>
+<title>BITLAB</title>
 <style>
     nav {
         background-color: <%=navbarBackground%>;

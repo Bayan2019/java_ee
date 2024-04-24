@@ -12,7 +12,7 @@
     <head>
         <%@include file="/vendor/meta.jsp"%>
         <%@include file="/links/links.jsp"%>
-        <%@include file="/vendor/styleBitlabShop.jsp"%>
+        <%@include file="/vendor/styleBitlab.jsp"%>
     </head>
     <body>
         <%@include file="/vendor/headerBitlabShop.jsp"%>
