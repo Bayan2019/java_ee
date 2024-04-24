@@ -15,7 +15,7 @@
         <%@include file="/vendor/styleBitlabShop.jsp"%>
     </head>
     <body>
-        <%@include file="/vendor/headerBitlab.jsp"%>
+        <%@include file="/vendor/headerBitlabShop.jsp"%>
         <main>
             <table class = 'table table-striped '>
                 <thead>

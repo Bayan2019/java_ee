@@ -13,7 +13,7 @@
         <%@include file="/vendor/styleBitlabShop.jsp"%>
     </head>
     <body>
-        <%@include file="/vendor/headerBitlab.jsp"%>
+        <%@include file="/vendor/headerBitlabShop.jsp"%>
         <main>
             <%
                 Item item = (Item) request.getAttribute("item");
