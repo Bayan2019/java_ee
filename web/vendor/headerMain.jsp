@@ -34,8 +34,15 @@
                         <li><a class="dropdown-item" href="/html/sprint1Main.jsp">Sprint Task 1</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">JDBC</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        JDBC
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/bitlab_academy">BITLAB ACADEMY</a> </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Sprint Task 2</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cookies</a>
