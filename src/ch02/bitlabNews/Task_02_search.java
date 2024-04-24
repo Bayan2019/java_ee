@@ -16,7 +16,6 @@ public class Task_02_search extends HttpServlet {
             throws ServletException, IOException {
 
         String search = request.getParameter("search");
-        System.out.println(search);
         DBManager.setSomeNews(DBManager.getSearchNews(search));
 
         request.getRequestDispatcher("/html/bitlabNewsCategory.jsp").forward(request, response);
