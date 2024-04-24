@@ -28,8 +28,8 @@
                         JSP
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/html/bitlabShopMain.jsp">BITLAB SHOP</a></li>
-                        <li><a class="dropdown-item" href="#">NEWS.COM</a></li>
+                        <li><a class="dropdown-item" href="/bitlab_shop">BITLAB SHOP</a></li>
+                        <li><a class="dropdown-item" href="/bitlab_news">BITLAB NEWS</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/html/sprint1Main.jsp">Sprint Task 1</a></li>
                     </ul>

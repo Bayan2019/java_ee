@@ -9,6 +9,7 @@
     String navbarBackground="#1b4d3e";
     String navbarColor="#e5e4e2";
     String brandColor="#00cccc";
+    String searchButtonBackground="#09A29D";
     String detailsBackground="#555555";
     String detailsColor="#f0e0d1";
 %>
@@ -18,6 +19,15 @@
     nav {
         background-color: <%=navbarBackground%>;
         color: <%=navbarColor%>;
+    }
+    nav form {
+        border: none;
+        padding: 0;
+    }
+    nav form button {
+        background-color: <%=searchButtonBackground%>;
+        color: <%=navbarBackground%>;
+        border-radius: 5px;
     }
     .nav-link {
         color: <%=navbarColor%>;
