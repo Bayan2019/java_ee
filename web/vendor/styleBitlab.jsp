@@ -83,7 +83,4 @@
     h3 {
         color: <%=brandColor%>;
     }
-    .with-2-option-and-modal {
-        border: none;
-    }
 </style>

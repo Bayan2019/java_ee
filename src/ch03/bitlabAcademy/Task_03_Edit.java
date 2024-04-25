@@ -13,7 +13,6 @@ import java.io.IOException;
 public class Task_03_Edit extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Editing...");
         Long id = Long.parseLong(request.getParameter("id"));
         request.setAttribute("student", DBConnector.getStudent(id));
         request.getRequestDispatcher("/html/bitlabAcademyEdit.jsp").forward(request, response);

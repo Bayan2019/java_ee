@@ -18,7 +18,7 @@
             <%
                 Student student = (Student) request.getAttribute("student");
             %>
-            <form action="/bitlab_academy/edit" method="post" class="with-2-option-and-modal">
+            <form action="/bitlab_academy/edit" method="post">
                 <input type="hidden" name="id" value="<%=student.getId()%>" />
 
                 <label>NAME</label>
@@ -34,10 +34,10 @@
                 <input type="text" name="studentCity" value="<%=student.getCity()%>"> <br/>
 
                 <button type="submit" class="btn">SAVE</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStudent">
+                    DELETE
+                </button>
             </form>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStudent">
-                DELETE
-            </button>
             <div class="modal" tabindex="-1" id="deleteStudent">
                 <div class="modal-dialog">
                     <div class="modal-content">
