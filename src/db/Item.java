@@ -42,6 +42,7 @@ public class Item {
     public String getName() {
         return this.name;
     }
+    public String getDescription() { return this.description; }
     public double getPrice() {
         return this.price;
     }
