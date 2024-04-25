@@ -24,9 +24,8 @@
 
 ## JDBC, continued
 
-[//]: # (- [Task 1]&#40;&#41;)
-
-[//]: # (- [Sprint Task 2]&#40;&#41;)
+- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy)
+- [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sprint2)
 
 ## JDBC -- Table Relationships
 
