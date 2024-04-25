@@ -22,11 +22,11 @@ public class DBManager {
         employees.add(new Employee("Anel", "Mukhamejanova", "Management", 350000));
     }
     static {
-        items.add(new Item(1, "Iphone 13 Pro Max", 450000, 10));
-        items.add(new Item(2, "XIAOMI REDMI NOTE 8", 82000, 20));
-        items.add(new Item(3, "Oppo 3 Model X", 350000, 15));
-        items.add(new Item(4, "Mackbook Pro M1 13", 750000, 15));
-        items.add(new Item(5, "ASUS TUF Gaming", 340000, 7));
+        items.add(new Item(1L, "Iphone 13 Pro Max", 450000, 10));
+        items.add(new Item(2L, "XIAOMI REDMI NOTE 8", 82000, 20));
+        items.add(new Item(3L, "Oppo 3 Model X", 350000, 15));
+        items.add(new Item(4L, "Mackbook Pro M1 13", 750000, 15));
+        items.add(new Item(5L, "ASUS TUF Gaming", 340000, 7));
     }
     static {
         allNews.add(new News(1L,

@@ -15,7 +15,7 @@
     <body>
         <%@include file="/vendor/headerBitlabShop.jsp"%>
         <main>
-            <form action="/bitlab_shop_add_item" method="post">
+            <form action="/bitlab_shop/add_item" method="post">
                 <label>NAME</label>
                 <input type="text" name="itemName" class="form-control" />
                 <label>PRICE</label>

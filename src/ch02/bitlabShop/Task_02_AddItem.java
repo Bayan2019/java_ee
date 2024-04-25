@@ -24,7 +24,7 @@ public class Task_02_AddItem extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("itemPrice"));
         int amount = Integer.parseInt(request.getParameter("itemAmount"));
 
-        int id = DBManager.getAllItems().getLast().getId()+1;
+        Long id = DBManager.getAllItems().getLast().getId()+1;
 
         DBManager.addItem(new Item(id, name, price, amount));
 
