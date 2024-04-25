@@ -29,7 +29,6 @@
                     <%=task.getDescription()%>
                 </textarea>
                 <br />
-<%--                <input type="text" name="taskDescription" value="<%=task.getDescription()%>"> <br/>--%>
 
                 <label>DEADLINE</label>
                 <input type="date" name="taskDeadline" value=<%=task.getDeadlineDate()%> placeholder="<%=task.getDeadlineDate()%>"> <br />

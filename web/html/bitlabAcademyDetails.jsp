@@ -55,6 +55,9 @@
                 %>
                 </tbody>
             </table>
+            <a class="btn" role="button" href="/bitlab_academy/edit?id=<%=student.getId()%>">
+                EDIT
+            </a>
         </main>
     </body>
 </html>

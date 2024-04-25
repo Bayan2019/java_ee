@@ -13,6 +13,7 @@
     String searchButtonBackground="#09A29D";
     String detailsBackground="#555555";
     String detailsColor="#f0e0d1";
+    String btnDangerBackground="#ff4dff";
 %>
 <link rel="icon" type="image/x-icon" href="https://bitlab.kz/images/favicons/android-chrome-144x144.png" />
 <title>BITLAB</title>
@@ -46,12 +47,25 @@
         padding: 5px;
     }
     button {
+        margin: 3px;
+    }
+    button, .btn {
         color: <%=navbarColor%>;
         background-color: <%=navbarBackground%>;
     }
     button:hover {
         color: <%=navbarColor%>;
         background-color: <%=brandColor%>;
+    }
+    button, .btn:hover {
+        color: <%=navbarColor%>;
+        background-color: <%=brandColor%>;
+    }
+    .btn-danger {
+        background-color: red;
+    }
+    .btn-danger:hover {
+        background-color: <%=btnDangerBackground%>;
     }
     td .btn-sm {
         color: <%=detailsColor%>;
@@ -68,5 +82,8 @@
     }
     h3 {
         color: <%=brandColor%>;
+    }
+    .with-2-option-and-modal {
+        border: none;
     }
 </style>

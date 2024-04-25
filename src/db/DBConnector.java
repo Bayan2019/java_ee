@@ -88,4 +88,35 @@ public class DBConnector {
 
         return student;
     }
+
+    public static void updateStudent(Long id, String name, String surname, String birthdate, String city) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE students " +
+                    "SET name=?, surname=?, birthdate=?, city=? " +
+                    "WHERE id=?;");
+            statement.setString(1, name);
+            statement.setString(2, surname);
+            statement.setDate(3, Date.valueOf(LocalDate.parse(birthdate)));
+            statement.setString(4, city);
+            statement.setLong(5, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteStudent(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM students WHERE id=?;");
+
+            statement.setLong(1, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
