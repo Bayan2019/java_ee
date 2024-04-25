@@ -30,7 +30,6 @@
                 <tbody>
                 <%
                     ArrayList<Item> items = DBManager.getAllItems();
-                    System.out.println(request.getAttribute("items"));
                     if (items!=null) {
                         for (Item item: items) {
                         %>
