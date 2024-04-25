@@ -41,7 +41,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/bitlab_academy">BITLAB ACADEMY</a> </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sprint Task 2</a></li>
+                        <li><a class="dropdown-item" href="/sprint_2">Sprint Task 2</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

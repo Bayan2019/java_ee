@@ -14,6 +14,8 @@
     String detailsBackground="#555555";
     String detailsColor="#f0e0d1";
     String btnDangerBackground="#ff4dff";
+    String btnDangerLightBackground="#ffc0cb";
+    String moneyColor="#009966";
 %>
 <link rel="icon" type="image/x-icon" href="https://bitlab.kz/images/favicons/android-chrome-144x144.png" />
 <title>BITLAB</title>
@@ -82,5 +84,12 @@
     }
     h3 {
         color: <%=brandColor%>;
+    }
+
+    .money {
+        background-color: <%=moneyColor%>;
+    }
+    .money:hover {
+        background-color: <%=brandColor%>;
     }
 </style>
