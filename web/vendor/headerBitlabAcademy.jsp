@@ -22,10 +22,10 @@
                     <a class="nav-link academy" href="/bitlab_academy">Students</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link academy" href="/bitlab_news/cities">Cities</a>
+                    <a class="nav-link academy" href="/bitlab_academy/cities">Cities</a>
                 </li>
             </ul>
-            <form class="d-flex mt-3" role="search" action="/bitlab_news/search" method="post">
+            <form class="d-flex mt-3" role="search" action="/bitlab_academy" method="post">
                 <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
                 <button id="headerSearch" type="submit">Search</button>
             </form>
