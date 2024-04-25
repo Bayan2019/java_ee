@@ -22,28 +22,71 @@
 - [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Main.java)
 - [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Details.java)
 
+We Created SQL Table `students` for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy):
+
+> `CREATE TABLE students(`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name VARCHAR(255),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`surname VARCHAR(255),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`birthdate DATE,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`city VARCHAR(100)`\
+>`);`
+
 ## JDBC, continued
 
 - [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy)
 - [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sprint2)
 
+We created tables `items`
+
+> `CREATE TABLE items(`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name VARCHAR(255),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`description TEXT,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`price DECIMAL`\
+>);`
+
+and `users`
+
+>`CREATE TABLE users(`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`email VARCHAR(200),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`password VARCHAR(200),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`fullName VARCHAR(200)`\
+>`);`
+
+for [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sprint2).
+
 ## JDBC -- Table Relationships
 
-[//]: # (- [Task 1]&#40;&#41;)
+- [Task 1]()
+- [Task 2]()
 
-[//]: # (- [Task 2]&#40;&#41;)
+We Created SQL Table `cities` for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy):
+
+> `CREATE TABLE cities(`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name VARCHAR(200),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`code VARCHAR(3)`\
+>`);`
+
+Then we alter the table `students`
+
+>`ALTER TABLE students`\
+>`ADD COLUMN city_id BIGINT`\
+>`REFERENCES cities(id);`
+
+to connect it with the table `cities`
+
+>`UPDATE students`\
+>`SET city_id=cities.id`\
+>`FROM cities`\
+>`WHERE students.city=cities.name;`
+
+for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy).
 
 ## Cookies
 
-[//]: # (- [Task 1]&#40;&#41;)
-
-[//]: # (- [Task 2]&#40;&#41;)
-
-[//]: # (- [Task 3]&#40;&#41;)
-
-[//]: # (- [Sprint Task 3]&#40;&#41;)
-
 ## Sessions
-
 
 ## Authentication, Registration, Adding a Blog, and Comments
