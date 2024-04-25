@@ -19,9 +19,8 @@
 
 ## JDBC
 
-[//]: # (- [Task 1]&#40;&#41;)
-
-[//]: # (- [Task 2]&#40;&#41;)
+- [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Main.java)
+- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Details.java)
 
 ## JDBC, continued
 
