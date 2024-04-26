@@ -36,18 +36,12 @@
                 <select name="studentCity">
                     <%
                         for (City city: DBConnector.getAllCities()) {
-//                            if (student.getCity().equals(city.getName())) {
                     %>
                     <option <%=student.getCity().equals(city.getName()) ? "selected" : ""%>
-                            value="<%=city.getName()%>">
+                            value="<%=city.getId()%>">
                         <%=city.getName()%>
                     </option>
-<%--                    <%--%>
-<%--                            } else {--%>
-<%--                    %>--%>
-<%--                    <option value="<%=city.getName()%>"><%=city.getName()%></option>--%>
                     <%
-//                            }
                         }
                     %>
                 </select>

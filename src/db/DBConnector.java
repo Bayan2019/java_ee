@@ -90,16 +90,17 @@ public class DBConnector {
         return student;
     }
 
-    public static void updateStudent(Long id, String name, String surname, String birthdate, String city) {
+    public static void updateStudent(Long id, String name, String surname, String birthdate, Long city_id) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE students " +
-                    "SET name=?, surname=?, birthdate=?, city=? " +
+                    "SET name=?, surname=?, birthdate=?, city=?, city_id=? " +
                     "WHERE id=?;");
             statement.setString(1, name);
             statement.setString(2, surname);
             statement.setDate(3, Date.valueOf(LocalDate.parse(birthdate)));
-            statement.setString(4, city);
-            statement.setLong(5, id);
+            statement.setString(4, getCity(city_id).getName());
+            statement.setLong(5, city_id);
+            statement.setLong(6, id);
 
             statement.executeUpdate();
             statement.close();
