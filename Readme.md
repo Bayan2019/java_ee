@@ -59,7 +59,7 @@ for [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sp
 
 ## JDBC -- Table Relationships
 
-- [Task 1]()
+- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy)
 - [Task 2]()
 
 We Created SQL Table `cities` for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy):
