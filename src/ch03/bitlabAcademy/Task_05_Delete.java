@@ -1,7 +1,6 @@
 package ch03.bitlabAcademy;
 
 import db.DBConnector;
-import db.Student;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,19 +8,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
-@WebServlet(value = "/bitlab_academy/delete")
-public class Task_03_Delete extends HttpServlet {
+@WebServlet(value = "/bitlab_academy/cities/delete")
+public class Task_05_Delete extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Long id = Long.parseLong(request.getParameter("id"));
-        System.out.println(id);
 
-        DBConnector.deleteStudent(id);
+        DBConnector.deleteCity(id);
 
-        request.setAttribute("students", DBConnector.getAllStudents());
-        request.getRequestDispatcher("/html/bitlabAcademyMain.jsp").forward(request, response);
+        request.setAttribute("cities", DBConnector.getAllCities());
+        request.getRequestDispatcher("/html/bitlabAcademyMain2.jsp").forward(request, response);
     }
 }

@@ -1,5 +1,3 @@
-<%@ page import="db.Student" %>
-<%@ page import="db.DBConnector" %>
 <%@ page import="db.City" %><%--
   Created by IntelliJ IDEA.
   User: bayan
@@ -18,39 +16,16 @@
         <%@include file="/vendor/headerBitlabAcademy.jsp"%>
         <main>
             <%
-                Student student = (Student) request.getAttribute("student");
+                City city = (City) request.getAttribute("city");
             %>
-            <form action="/bitlab_academy/edit" method="post">
-                <input type="hidden" name="id" value="<%=student.getId()%>" />
+            <form action="/bitlab_academy/cities/edit" method="post">
+                <input type="hidden" name="id" value="<%=city.getId()%>" />
 
                 <label>NAME</label>
-                <input type="text" name="studentName" value="<%=student.getName()%>"> <br/>
+                <input type="text" name="cityName" value="<%=city.getName()%>"> <br/>
 
-                <label>SURNAME</label>
-                <input type="text" name="studentSurname" value="<%=student.getSurname()%>"> <br/>
-
-                <label>BIRTHDATE</label>
-                <input type="date" name="studentBirthdate" value=<%=student.getBirthdate()%> placeholder="<%=student.getBirthdate()%>"> <br />
-
-                <label>CITY</label>
-                <select name="studentCity">
-                    <%
-                        for (City city: DBConnector.getAllCities()) {
-//                            if (student.getCity().equals(city.getName())) {
-                    %>
-                    <option <%=student.getCity().equals(city.getName()) ? "selected" : ""%>
-                            value="<%=city.getName()%>">
-                        <%=city.getName()%>
-                    </option>
-<%--                    <%--%>
-<%--                            } else {--%>
-<%--                    %>--%>
-<%--                    <option value="<%=city.getName()%>"><%=city.getName()%></option>--%>
-                    <%
-//                            }
-                        }
-                    %>
-                </select>
+                <label>CODE</label>
+                <input type="text" name="cityCode" value="<%=city.getCode()%>"> <br/>
 
                 <button type="submit" class="btn">SAVE</button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStudent">
@@ -64,9 +39,9 @@
                             <h5 class="modal-title">CONFIRM DELETE</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="/bitlab_academy/delete" method="post">
+                        <form action="/bitlab_academy/cities/delete" method="post">
                             <div class="modal-body">
-                                <input type="hidden" name="id" value="<%=student.getId()%>" />
+                                <input type="hidden" name="id" value="<%=city.getId()%>" />
                                 <h3>Are you sure?</h3>
                             </div>
                             <div class="modal-footer">

@@ -17,33 +17,21 @@
         <%@include file="/vendor/headerBitlabAcademy.jsp"%>
         <main>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form">
-                + Add Student
+                + Add City
             </button>
             <div class="modal" tabindex="-1" id="form">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">NEW STUDENT</h5>
+                            <h5 class="modal-title">NEW CITY</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="/bitlab_academy" method="post">
+                        <form action="/bitlab_academy/cities" method="post">
                             <div class="modal-body">
                                 <label>NAME</label>
-                                <input type="text" name="studentName" /> <br>
-                                <label>SURNAME</label>
-                                <input type="text" name="studentSurname" /> <br>
-                                <label>BIRTHDATE</label>
-                                <input type="date" name="studentBirthdate" /> <br>
-                                <label>CITY</label>
-                                <select name="studentCity">
-<%
-  for (City city: DBConnector.getAllCities()) {
-      %>
-                                    <option value="<%=city.getName()%>"><%=city.getName()%></option>
-                                    <%
-  }
-%>
-                                </select>
+                                <input type="text" name="cityName" /> <br>
+                                <label>CODE</label>
+                                <input type="text" name="cityCode" /> <br>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
@@ -58,26 +46,22 @@
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>SURNAME</th>
-                    <th>BIRTHDATE</th>
-                    <th>CITY</th>
+                    <th>CODE</th>
                     <th>DETAILS</th>
                 </tr>
                 </thead>
                 <tbody>
                 <%
 //                    ArrayList<Student> students = DBConnector.getAllStudents();
-                    ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
-                    if (students!=null) {
-                        for (Student student: students) {
+                    ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cities");
+                    if (cities!=null) {
+                        for (City city: cities) {
                 %>
                 <tr>
-                    <td><%=student.getId()%></td>
-                    <td><%=student.getName()%></td>
-                    <td><%=student.getSurname()%></td>
-                    <td><%=student.getBirthdate()%></td>
-                    <td><%=student.getCity()%></td>
-                    <td><a href="/bitlab_academy/details?id=<%=student.getId()%>" class="btn btn-sm">DETAILS</a></td>
+                    <td><%=city.getId()%></td>
+                    <td><%=city.getName()%></td>
+                    <td><%=city.getCode()%></td>
+                    <td><a href="/bitlab_academy/cities/details?id=<%=city.getId()%>" class="btn btn-sm">DETAILS</a></td>
                 </tr>
                 <%
                         }
