@@ -19,8 +19,8 @@
 
 ## JDBC
 
-- [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Main.java)
-- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Details.java)
+- [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Main.java) - BITLAB Academy
+- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy/Task_03_Details.java) - BITLAB Academy
 
 We Created SQL Table `students` for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy):
 
@@ -34,7 +34,7 @@ We Created SQL Table `students` for [BITLAB Academy](https://github.com/Bayan201
 
 ## JDBC, continued
 
-- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy)
+- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy) - BITLAB Academy
 - [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sprint2)
 
 We created tables `items`
@@ -59,8 +59,8 @@ for [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sp
 
 ## JDBC -- Table Relationships
 
-- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy)
-- [Task 2]()
+- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/bitlabAcademy) - BITLAB Academy
+- [Task 2]() - Sprint Task 2
 
 We Created SQL Table `cities` for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy):
 
@@ -84,6 +84,22 @@ to connect it with the table `cities`
 >`WHERE students.city=cities.name;`
 
 for [BITLAB Academy](https://github.com/Bayan2019/java_ee/blob/master/src/ch03/bitlabAcademy).
+
+We Created SQL Table `brands` for [Sprint Task 2](https://github.com/Bayan2019/java_ee/tree/master/src/ch03/sprint2):
+
+> `CREATE TABLE brands(`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name VARCHAR(200),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`country VARCHAR(3)`\
+>`);`
+
+Then we alter the table `items`
+
+>`ALTER TABLE items`\
+>`ADD COLUMN brand_id BIGINT`\
+>`REFERENCES brands(id);`
+
+to connect it with the table `brands`.
 
 ## Cookies
 
