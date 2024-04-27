@@ -19,9 +19,6 @@
     <body>
         <%@include file="/vendor/headerSprint2_2.jsp"%>
         <main>
-            <%
-                User user = (User) request.getAttribute("user");
-            %>
             <figure class="text-center">
                 <blockquote class="blockquote">
                     <p>Hello <%=user.getFullName()%>></p>

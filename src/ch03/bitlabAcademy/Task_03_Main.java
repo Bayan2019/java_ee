@@ -27,9 +27,9 @@ public class Task_03_Main extends HttpServlet {
         String name = request.getParameter("studentName");
         String surname = request.getParameter("studentSurname");
         LocalDate birthdate = LocalDate.parse(request.getParameter("studentBirthdate"));
-        String city = request.getParameter("studentCity");
+        Long city_id = Long.parseLong(request.getParameter("studentCity"));
 
-        DBConnector.addStudent(new Student(name, surname, birthdate, city));
+        DBConnector.addStudent(new Student(name, surname, birthdate, city_id));
         request.setAttribute("students", DBConnector.getAllStudents());
         request.getRequestDispatcher("/html/bitlabAcademyMain.jsp").forward(request, response);
     }

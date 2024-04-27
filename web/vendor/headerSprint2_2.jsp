@@ -1,10 +1,14 @@
-<%--
+<%@ page import="db.User" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/21/24
   Time: 03:32
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    Long id = (Long) request.getAttribute("id");
+    User user = DBConnector.getUser(id);
+%>
 <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
@@ -24,10 +28,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">By Category</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/sprint_2">Sign Out</a>
-                </li>
             </ul>
         </div>
+        <ul class="navbar-nav me-auto my-2 my-lg-0">
+            <li class="nav-item">
+                <form action="/sprint_2/panel/items" method="get" class="reference">
+                    <input type="hidden" name="id" value="<%=user.getId()%>">
+                    <button class="nav-link reference">Admin Panel</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/sprint_2/profile" method="get" class="reference">
+                    <input type="hidden" name="id" value="<%=user.getId()%>">
+                    <button class="nav-link reference">Profile</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/sprint_2" method="get" class="reference">
+                    <input type="hidden" name="id" value="<%=user.getId()%>">
+                    <button class="nav-link reference">Sign Out</button>
+                </form>
+            </li>
+        </ul>
     </div>
 </nav>

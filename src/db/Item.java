@@ -1,11 +1,12 @@
 package db;
 
 public class Item {
-    public Long id;
-    public String name;
-    public String description;
-    public double price;
-    public int amount;
+    Long id;
+    String name;
+    String description;
+    double price;
+    int amount;
+    Brand brand;
 
     public Item() {}
 
@@ -22,6 +23,7 @@ public class Item {
     public void setAmount(int amount) {
         this.amount=amount;
     }
+    public void setBrand(Brand brand) {this.brand=brand;}
 
     public Item(Long id, String name, String description, double price) {
         this.setId(id);
@@ -34,6 +36,30 @@ public class Item {
         this.setName(name);
         this.setPrice(price);
         this.setAmount(amount);
+    }
+    public Item(String name, String description, double price, Long brand_id) {
+        this.setName(name);
+        this.setDescription(description);
+        this.setPrice(price);
+        this.setBrand(DBConnector.getBrand(brand_id));
+    }
+
+    public Item(long id, String name, String description, double price, int amount, Long brand_id) {
+        this.setId(id);
+        this.setName(name);
+        this.setDescription(description);
+        this.setPrice(price);
+        this.setAmount(amount);
+        this.setBrand(DBConnector.getBrand(brand_id));
+    }
+
+    public Item(long id, String name, String description, double price, int amount, Brand brand) {
+        this.setId(id);
+        this.setName(name);
+        this.setDescription(description);
+        this.setPrice(price);
+        this.setAmount(amount);
+        this.setBrand(brand);
     }
 
     public Long getId() {
@@ -49,4 +75,5 @@ public class Item {
     public int getAmount() {
         return this.amount;
     }
+    public Brand getBrand() {return this.brand;}
 }

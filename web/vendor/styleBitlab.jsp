@@ -92,4 +92,20 @@
     .money:hover {
         background-color: <%=brandColor%>;
     }
+    .vertical-navbar {
+        background-color: <%=navbarBackground%>;
+    }
+    .nav-item form {
+        padding: 0;
+        margin: 0;
+    }
+    .reference {
+        border: none;
+        background: transparent;
+        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);;
+    }
+    .reference:hover {
+        color: <%=brandColor%>;
+        background: transparent;
+    }
 </style>

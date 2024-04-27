@@ -39,7 +39,7 @@
 <%
   for (City city: DBConnector.getAllCities()) {
       %>
-                                    <option value="<%=city.getName()%>"><%=city.getName()%></option>
+                                    <option value="<%=city.getId()%>"><%=city.getName()%></option>
                                     <%
   }
 %>
@@ -76,7 +76,7 @@
                     <td><%=student.getName()%></td>
                     <td><%=student.getSurname()%></td>
                     <td><%=student.getBirthdate()%></td>
-                    <td><%=student.getCity()%></td>
+                    <td><%=student.getCity().getName()%></td>
                     <td><a href="/bitlab_academy/details?id=<%=student.getId()%>" class="btn btn-sm">DETAILS</a></td>
                 </tr>
                 <%

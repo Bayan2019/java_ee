@@ -36,7 +36,7 @@ public class DBConnector {
                 student.setName(resultSet.getString("name"));
                 student.setSurname(resultSet.getString("surname"));
                 student.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
-                student.setCity(resultSet.getString("city"));
+                student.setCity(DBConnector.getCity(resultSet.getLong("city_id")));
 
                 students.add(student);
             }
@@ -51,12 +51,12 @@ public class DBConnector {
     public static void addStudent(Student student) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
-                    "students (name, surname, birthdate, city) " +
+                    "students (name, surname, birthdate, city_id) " +
                     "VALUES (?, ?, ?, ?);");
             statement.setString(1,student.getName());
             statement.setString(2, student.getSurname());
             statement.setDate(3, Date.valueOf(student.getBirthdate().toString()));
-            statement.setString(4, student.getCity());
+            statement.setLong(4, student.getCity().getId());
 
             statement.executeUpdate();
 
@@ -80,7 +80,7 @@ public class DBConnector {
                 student.setName(resultSet.getString("name"));
                 student.setSurname(resultSet.getString("surname"));
                 student.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
-                student.setCity(resultSet.getString("city"));
+                student.setCity(DBConnector.getCity(resultSet.getLong("city_id")));
             }
             statement.close();
         } catch (Exception e) {
@@ -137,6 +137,7 @@ public class DBConnector {
                 item.setName(resultSet.getString("name"));
                 item.setDescription(resultSet.getString("description"));
                 item.setPrice(resultSet.getDouble("price"));
+                item.setBrand(DBConnector.getBrand(resultSet.getLong("brand_id")));
 
                 items.add(item);
             }
@@ -146,6 +147,76 @@ public class DBConnector {
         }
 
         return items;
+    }
+    public static void addItem(Item item) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
+                    "items (name, description, price, brand_id) " +
+                    "VALUES (?, ?, ?, ?);");
+            statement.setString(1,item.getName());
+            statement.setString(2, item.getDescription());
+            statement.setDouble(3, item.getPrice());
+            statement.setLong(4, item.getBrand().getId());
+
+            statement.executeUpdate();
+
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static Item getItem(Long id) {
+        Item item = new Item();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE id=?;");
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                item.setId(resultSet.getLong("id"));
+                item.setName(resultSet.getString("name"));
+                item.setDescription(resultSet.getString("description"));
+                item.setPrice(resultSet.getDouble("price"));
+                item.setBrand(DBConnector.getBrand(resultSet.getLong("brand_id")));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return item;
+    }
+    public static void updateItem(Long id, String name, String description, Double price, Long brand_id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE items " +
+                    "SET name=?, description=?, price=?, brand_id=? " +
+                    "WHERE id=?;");
+            statement.setString(1, name);
+            statement.setString(2, description);
+            statement.setDouble(3, price);
+            statement.setLong(4, brand_id);
+            statement.setLong(5, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteItem(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE id=?;");
+
+            statement.setLong(1, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // User ///////////// User ///////////// User ////////////////
@@ -162,6 +233,28 @@ public class DBConnector {
             if (resultSet.next()) {
 
                 user.setId(resultSet.getLong("id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setFullName(resultSet.getString("fullName"));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    public static User getUser(Long id) {
+        User user = new User();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id=?;");
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                user.setId(id);
                 user.setEmail(resultSet.getString("email"));
                 user.setFullName(resultSet.getString("fullName"));
             }
@@ -197,7 +290,6 @@ public class DBConnector {
 
         return cities;
     }
-
     public static void addCity(City city) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
@@ -213,7 +305,6 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
-
     public static City getCity(Long id) {
         City city = new City();
 
@@ -235,7 +326,6 @@ public class DBConnector {
 
         return city;
     }
-
     public static void updateCity(Long id, String name, String code) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE cities " +
@@ -255,6 +345,94 @@ public class DBConnector {
     public static void deleteCity(Long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM cities WHERE id=?;");
+
+            statement.setLong(1, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Brand ///////////// Brand ///////////// Brand ////////////////
+    public static ArrayList<Brand> getAllBrands() {
+        ArrayList<Brand> brands = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM brands ORDER BY name ASC;");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Brand brand = new Brand();
+
+                brand.setId(resultSet.getLong("id"));
+                brand.setName(resultSet.getString("name"));
+                brand.setCountry(resultSet.getString("country"));
+
+                brands.add(brand);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return brands;
+    }
+    public static Brand getBrand(Long id) {
+        Brand brand = new Brand();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM brands WHERE id=?;");
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                brand.setId(resultSet.getLong("id"));
+                brand.setName(resultSet.getString("name"));
+                brand.setCountry(resultSet.getString("country"));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return brand;
+    }
+    public static void addBrand(Brand brand) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
+                    "brands (name, country) " +
+                    "VALUES (?, ?);");
+            statement.setString(1,brand.getName());
+            statement.setString(2, brand.getCountry());
+
+            statement.executeUpdate();
+
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void updateBrand(Long id, String name, String country) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE brands " +
+                    "SET name=?, country=? " +
+                    "WHERE id=?;");
+            statement.setString(1, name);
+            statement.setString(2, country);
+            statement.setLong(3, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void deleteBrand(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM brands WHERE id=?;");
 
             statement.setLong(1, id);
 

@@ -47,7 +47,7 @@
                 <tr>
                     <td>CITY</td>
                     <td style="color: <%=navbarBackground%>;">
-                        <strong><%=student.getCity()%></strong>
+                        <strong><%=student.getCity().getName()%></strong>
                     </td>
                 </tr>
                 <%
