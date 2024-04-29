@@ -466,4 +466,79 @@ public class DBConnector {
 
         return countries;
     }
+
+    // Category ///////////// Category ///////////// Category ////////////////
+    public static Category getCategory(int id) {
+        Category category = new Category();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM categories WHERE id=?;");
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                category.setId(resultSet.getInt("id"));
+                category.setName(resultSet.getString("name"));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return category;
+    }
+
+    // Language ///////////// Language ///////////// Language ////////////////
+    public static Language getLanguage(int id) {
+        Language language = new Language();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM languages WHERE id=?;");
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                language.setId(resultSet.getInt("id"));
+                language.setName(resultSet.getString("name"));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return language;
+    }
+
+    // News ///////////// News ///////////// News ////////////////
+    public static ArrayList<News> getNewsByLanguage(int language_id) {
+        ArrayList<News> news = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
+                    "WHERE language_id=?" +
+                    "ORDER BY id ASC;");
+            statement.setInt(1, language_id);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                News n = new News();
+
+                n.setId(resultSet.getLong("id"));
+                n.setTitle(resultSet.getString("title"));
+                n.setContent(resultSet.getString("content"));
+                n.setAuthor(resultSet.getString("author"));
+                n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
+                n.setPost_date(resultSet.getDate("post_date").toLocalDate());
+
+                news.add(n);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return news;
+    }
 }

@@ -63,6 +63,7 @@ public class Cookies extends HttpServlet {
         request.setAttribute("applicationCountry", applicationCountry);
         request.setAttribute("applicationPhone", applicationPhone);
         request.setAttribute("language", language);
+
         request.getRequestDispatcher("/html/cookies.jsp").forward(request, response);
     }
 }

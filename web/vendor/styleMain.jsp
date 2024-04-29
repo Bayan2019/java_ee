@@ -72,7 +72,12 @@
         max-width: 300px;
         min-width: 300px;
     }
-    /*header .header-search {*/
-    /*    align-self: center;*/
-    /*}*/
+    .ul-languages {
+        padding-left: 8px;
+    }
+    .select-language {
+        background: transparent;
+        border-radius: 2px;
+        border: none;
+    }
 </style>

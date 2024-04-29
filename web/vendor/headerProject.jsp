@@ -29,10 +29,6 @@
                 </li>
             </ul>
         </div>
-        <form class="d-flex mx-lg-auto mt-3 header-search input-group" role="search">
-            <input class="form-control me-lg-auto rounded" type="search" placeholder="Search" aria-label="Search">
-            <button id="headerSearch" type="submit">Search</button>
-        </form>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <form action="/project/register" method="get" class="reference">
