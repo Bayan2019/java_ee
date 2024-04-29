@@ -5,11 +5,6 @@
   Time: 03:32
   To change this template use File | Settings | File Templates.
 --%>
-
-<%--<div class="header">--%>
-<%--        <img src="https://raw.githubusercontent.com/Bayan2019/project02/main/images/logos3.png" alt="SAPAR" />--%>
-<%--        <h1>Java EE</h1>--%>
-<%--</div>--%>
 <nav class="navbar navbar-expand-sm" style="background-color: <%=headerBackground%>; color: <%=headerColor%>;">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
@@ -45,13 +40,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cookies</a>
+                    <a class="nav-link" href="/cookies">Cookies</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sessions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Project</a>
+                    <a class="nav-link" href="/project">Project</a>
                 </li>
             </ul>
             <form class="d-flex mt-3" role="search">

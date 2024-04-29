@@ -9,6 +9,8 @@
     String bodyBackground = "#ade8f4";
     String headerBackground = "#57CC98";
     String headerColor = "#05668d";
+    String navbar2Background = "#c7f8cb";
+    String bodyColor = "#34577a";
     String fieldsetBackground = "#48cae4";
     String fieldsetLegend = "#3B7813";
     String fieldsetColor = "#043707";
@@ -49,4 +51,28 @@
         color: <%=bodyBackground%>;
         border: <%=fieldsetLegend%> solid 3px;
     }
+    .nav-item form {
+        padding: 0;
+        margin: 0;
+    }
+    .ul-reference {
+        background-color: <%=navbar2Background%>;
+    }
+    .reference {
+        border: none;
+        color: <%=bodyColor%>;
+        background: transparent;
+        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);;
+    }
+    .reference:hover {
+        color: greenyellow;
+        background: transparent;
+    }
+    .navbar-project {
+        max-width: 300px;
+        min-width: 300px;
+    }
+    /*header .header-search {*/
+    /*    align-self: center;*/
+    /*}*/
 </style>

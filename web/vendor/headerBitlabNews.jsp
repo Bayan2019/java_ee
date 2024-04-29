@@ -20,13 +20,13 @@
                     <a class="nav-link" href="/bitlab_news">All News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bitlab_news/category?category=culture">Culture News</a>
+                    <a class="nav-link" href="/bitlab_news/category?category=1">Culture News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bitlab_news/category?category=sport">Sport News</a>
+                    <a class="nav-link" href="/bitlab_news/category?category=2">Sport News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bitlab_news/category?category=cinema">Cinema News</a>
+                    <a class="nav-link" href="/bitlab_news/category?category=3">Cinema News</a>
                 </li>
             </ul>
             <form class="d-flex mt-3" role="search" action="/bitlab_news/search" method="post">

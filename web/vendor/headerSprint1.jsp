@@ -5,11 +5,6 @@
   Time: 03:32
   To change this template use File | Settings | File Templates.
 --%>
-
-<%--<div class="header">--%>
-<%--        <img src="https://raw.githubusercontent.com/Bayan2019/project02/main/images/logos3.png" alt="SAPAR" />--%>
-<%--        <h1>Java EE</h1>--%>
-<%--</div>--%>
 <nav class="navbar navbar-expand-sm" style="background-color: <%=headerBackground%>; color: <%=headerColor%>;">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">

@@ -442,4 +442,28 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
+
+    // Brand ///////////// Brand ///////////// Brand ////////////////
+    public static ArrayList<Country> getAllCountries() {
+        ArrayList<Country> countries = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM countries ORDER BY name ASC;");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Country country = new Country();
+
+                country.setName(resultSet.getString("name"));
+                country.setCode(resultSet.getString("code"));
+
+                countries.add(country);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return countries;
+    }
 }

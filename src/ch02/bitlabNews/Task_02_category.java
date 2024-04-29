@@ -16,11 +16,11 @@ import java.util.Set;
 public class Task_02_category extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String category = request.getParameter("category");
-        Set<String> categories = Set.of("culture", "sport", "cinema");
-        if (categories.contains(category)) {
+        int category = Integer.parseInt(request.getParameter("category"));
+//        Set<int> categories = Set.of(1, 2, 3);
+//        if (categories.contains(category)) {
             DBManager.setSomeNews(DBManager.getCategoryNews(category));
-        }
+//        }
         request.getRequestDispatcher("/html/bitlabNewsCategory.jsp").forward(request, response);
     }
 }
