@@ -103,6 +103,10 @@ to connect it with the table `brands`.
 
 ## Cookies
 
+- [Task 1](https://github.com/Bayan2019/java_ee/blob/master/src/ch06/Task_1.java)
+- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/ch06/Task_2.java)
+- [Task 3](https://github.com/Bayan2019/java_ee/blob/master/src/ch06/Task_3.java)
+
 ## Sessions
 
 ## Authentication, Registration, Adding a Blog, and Comments
