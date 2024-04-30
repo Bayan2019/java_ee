@@ -18,6 +18,7 @@ public class Task_03_Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("students", DBConnector.getAllStudents());
+        request.setAttribute("cities", DBConnector.getAllCities());
         request.getRequestDispatcher("/html/bitlabAcademyMain.jsp").forward(request, response);
     }
 

@@ -28,7 +28,8 @@
             </figure>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <%
-                    for (Item item: DBConnector.getAllItems()) {
+                    ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
+                    for (Item item: items) {
                         %>
                 <div class="col">
                     <div class="card text-center mb-3 h-100">

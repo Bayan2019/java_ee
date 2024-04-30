@@ -1,5 +1,6 @@
 package ch03.sprint2;
 
+import db.DBConnector;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,7 +15,7 @@ public class Sprint_2_Profile extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
         request.getRequestDispatcher("/html/sprint2Profile.jsp").forward(request, response);
     }
 }

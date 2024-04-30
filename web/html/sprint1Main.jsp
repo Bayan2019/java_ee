@@ -1,6 +1,6 @@
 <%@ page import="db.Task" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="db.DBManager" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/22/24
@@ -56,7 +56,7 @@
                 </thead>
                 <tbody>
                 <%
-                    ArrayList<Task> tasks = DBManager.getAllTaks();
+                    ArrayList<Task> tasks = (ArrayList<Task>) request.getAttribute("tasks");
                     if (tasks!=null) {
                         for (Task task: tasks) {
                         %>

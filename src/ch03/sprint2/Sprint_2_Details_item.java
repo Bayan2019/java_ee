@@ -16,9 +16,12 @@ public class Sprint_2_Details_item extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
+
         Long item_id = Long.parseLong(request.getParameter("item_id"));
         request.setAttribute("item", DBConnector.getItem(item_id));
+
+        request.setAttribute("brands", DBConnector.getAllBrands());
 
         request.getRequestDispatcher("/html/sprint2DetailsItem.jsp").forward(request, response);
     }
@@ -26,7 +29,7 @@ public class Sprint_2_Details_item extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
 
         Long item_id = Long.parseLong(request.getParameter("item_id"));
         String name = request.getParameter("itemName");
@@ -35,6 +38,9 @@ public class Sprint_2_Details_item extends HttpServlet {
         Long brand_id = Long.parseLong(request.getParameter("itemBrand"));
 
         DBConnector.updateItem(item_id, name, description, price, brand_id);
+
+        request.setAttribute("brands", DBConnector.getAllBrands());
+        request.setAttribute("items", DBConnector.getAllItems());
 
         request.getRequestDispatcher("/html/sprint2PanelItems.jsp").forward(request, response);
     }

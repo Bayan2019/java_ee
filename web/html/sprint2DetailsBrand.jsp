@@ -1,7 +1,5 @@
-<%@ page import="db.Student" %>
-<%@ page import="db.DBConnector" %>
-<%@ page import="db.City" %>
-<%@ page import="db.Brand" %><%--
+<%@ page import="db.Brand" %>
+<%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/22/24

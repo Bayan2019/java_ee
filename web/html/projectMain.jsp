@@ -1,5 +1,5 @@
 <%@ page import="db.News" %>
-<%@ page import="db.DBConnector" %><%--
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/21/24
@@ -19,18 +19,18 @@
         <main>
             <%
                 int language = Integer.parseInt((String) request.getAttribute("language"));
-                System.out.println(language);
-                for (News n: DBConnector.getNewsByLanguage(language)) {
+                ArrayList<News> someNews = (ArrayList<News>) request.getAttribute("someNews");
+                for (News n: someNews) {
                     %>
             <div class="card" style="margin: 10px">
-                <div class="card-header">
-                    <%=n.getTitle()%>
+                <div class="card-header" style="background-color: #39a2a5; color: #c7f8cb;">
+                    <h5><strong><%=n.getTitle()%></strong></h5>
                 </div>
-                <div class="card-body">
-                    <h6 class="card-title">by <%=n.getAuthor()%></h6>
+                <div class="card-body" style="background-color: #E7F8F0;">
+                    <h6 class="card-title text-body-secondary">by <%=n.getAuthor()%></h6>
                     <div class="card-text"><%=n.getContent()%></div>
                 </div>
-                <div class="card-footer text-body-secondary">
+                <div class="card-footer">
                     <%=n.getPost_date().toString()%>
                 </div>
             </div>

@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                 <%
-                    ArrayList<Item> items = DBManager.getAllItems();
+                    ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
                     if (items!=null) {
                         for (Item item: items) {
                         %>

@@ -1,5 +1,6 @@
 package ch03.sprint2;
 
+import db.DBConnector;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,6 +14,9 @@ public class Sprint_2_Main extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        request.setAttribute("items", DBConnector.getAllItems());
+
         request.getRequestDispatcher("/html/sprint2Main.jsp").forward(request, response);
     }
 }

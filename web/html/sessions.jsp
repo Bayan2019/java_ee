@@ -1,6 +1,6 @@
 <%@ page import="db.Country" %>
-<%@ page import="db.Translations" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="db.DBConnector" %>
+<%@ page import="db.Translations" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/21/24
@@ -58,8 +58,7 @@
                 <label for="applicationCountry">COUNTRY</label>
                 <select name="applicationCountry" id="applicationCountry">
                     <%
-                        ArrayList<Country> countries = (ArrayList<Country>) request.getAttribute("countries");
-                        for (Country country: countries) {
+                        for (Country country: DBConnector.getAllCountries()) {
                             %>
                     <option <%=country.getCode().equals(applicationCountry) ? "selected" : ""%>
                         value="<%=country.getCode()%>">
@@ -95,7 +94,7 @@
                 <label><strong><%=Translations.translations.get(language).get(2)%>: </strong></label>
                 <select>
                     <%
-                        for (Country country:countries) {
+                        for (Country country:DBConnector.getAllCountries()) {
                             %>
                     <option value="<%=country.getCode()%>"><%=country.getName()%></option>
                     <%

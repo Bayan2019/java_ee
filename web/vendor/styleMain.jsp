@@ -80,4 +80,8 @@
         border-radius: 2px;
         border: none;
     }
+    .card-footer {
+        background-color: #cee5f2;
+        color: #6279b8;
+    }
 </style>

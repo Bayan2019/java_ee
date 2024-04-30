@@ -14,12 +14,16 @@ public class Sprint_2_Delete_item extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
 
         Long item_id = Long.parseLong(request.getParameter("item_id"));
 
         DBConnector.deleteItem(item_id);
+
+        request.setAttribute("brands", DBConnector.getAllBrands());
+        request.setAttribute("items", DBConnector.getAllItems());
 
         request.getRequestDispatcher("/html/sprint2PanelItems.jsp").forward(request, response);
     }

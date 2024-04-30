@@ -1,4 +1,5 @@
-<%@ page import="db.*" %><%--
+<%@ page import="db.*" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/22/24
@@ -28,6 +29,7 @@
                 <label>BRAND</label>
                 <select name="itemBrand">
                     <%
+                        ArrayList<Brand> brands = (ArrayList<Brand>) request.getAttribute("brands");
                         for (Brand brand: DBConnector.getAllBrands()) {
                     %>
                     <option <%=item.getBrand().getId().equals(brand.getId()) ? "selected" : ""%>

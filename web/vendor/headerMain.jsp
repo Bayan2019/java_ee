@@ -26,7 +26,7 @@
                         <li><a class="dropdown-item" href="/bitlab_shop">BITLAB SHOP</a></li>
                         <li><a class="dropdown-item" href="/bitlab_news">BITLAB NEWS</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/html/sprint1Main.jsp">Sprint Task 1</a></li>
+                        <li><a class="dropdown-item" href="/sprint_1">Sprint Task 1</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -43,7 +43,7 @@
                     <a class="nav-link" href="/cookies">Cookies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sessions</a>
+                    <a class="nav-link" href="/sessions">Sessions</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/project">Project</a>

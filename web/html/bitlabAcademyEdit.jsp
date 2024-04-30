@@ -1,6 +1,6 @@
 <%@ page import="db.Student" %>
-<%@ page import="db.DBConnector" %>
-<%@ page import="db.City" %><%--
+<%@ page import="db.City" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/22/24
@@ -35,7 +35,8 @@
                 <label>CITY</label>
                 <select name="studentCity">
                     <%
-                        for (City city: DBConnector.getAllCities()) {
+                        ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cities");
+                        for (City city: cities) {
                     %>
                     <option <%=student.getCity().getId().equals(city.getName()) ? "selected" : ""%>
                             value="<%=city.getId()%>">

@@ -1,5 +1,6 @@
 package project;
 
+import db.DBConnector;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -32,6 +33,7 @@ public class Main extends HttpServlet {
             }
         }
 
+        request.setAttribute("someNews", DBConnector.getNewsByLanguage(Integer.parseInt(language)));
         request.setAttribute("language", language);
 
         request.getRequestDispatcher("/html/projectMain.jsp").forward(request, response);

@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Sprint_1_Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("tasks", DBManager.getAllTaks());
         request.getRequestDispatcher("/html/sprint1Main.jsp").forward(request, response);
     }
 }

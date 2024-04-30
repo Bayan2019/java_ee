@@ -1,7 +1,4 @@
-<%@ page import="db.Item" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="db.DBConnector" %>
-<%@ page import="db.User" %>
 <%@ page import="db.Brand" %>
 <%--
   Created by IntelliJ IDEA.
@@ -63,8 +60,7 @@
                                 </thead>
                                 <tbody>
                                 <%
-                                    //                    ArrayList<Student> students = DBConnector.getAllStudents();
-                                    ArrayList<Brand> brands = DBConnector.getAllBrands();
+                                    ArrayList<Brand> brands = (ArrayList<Brand>) request.getAttribute("brands");
                                     if (brands!=null) {
                                         for (Brand brand: brands) {
                                 %>

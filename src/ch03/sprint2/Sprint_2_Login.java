@@ -30,7 +30,7 @@ public class Sprint_2_Login extends HttpServlet {
             request.setAttribute("errorLogin", true);
             request.getRequestDispatcher("/html/sprint2Login.jsp").forward(request, response);
         } else {
-            request.setAttribute("id", user.getId());
+            request.setAttribute("user", user);
             request.getRequestDispatcher("/html/sprint2Profile.jsp").forward(request, response);
         }
     }

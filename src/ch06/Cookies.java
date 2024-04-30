@@ -1,5 +1,6 @@
 package ch06;
 
+import db.DBConnector;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -57,6 +58,7 @@ public class Cookies extends HttpServlet {
             }
         }
 
+        request.setAttribute("countries", DBConnector.getAllCountries());
         request.setAttribute("siteName", siteName);
         request.setAttribute("applicationName", applicationName);
         request.setAttribute("applicationSurname", applicationSurname);

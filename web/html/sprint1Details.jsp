@@ -1,6 +1,5 @@
 <%@ page import="db.Task" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="db.DBManager" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/22/24

@@ -37,7 +37,8 @@
                                 <label>CITY</label>
                                 <select name="studentCity">
 <%
-  for (City city: DBConnector.getAllCities()) {
+    ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cities");
+  for (City city: cities) {
       %>
                                     <option value="<%=city.getId()%>"><%=city.getName()%></option>
                                     <%

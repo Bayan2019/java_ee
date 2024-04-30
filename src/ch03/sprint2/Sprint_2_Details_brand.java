@@ -16,7 +16,8 @@ public class Sprint_2_Details_brand extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
+
         Long brand_id = Long.parseLong(request.getParameter("brand_id"));
         request.setAttribute("brand", DBConnector.getBrand(brand_id));
 
@@ -26,13 +27,15 @@ public class Sprint_2_Details_brand extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
 
         Long brand_id = Long.parseLong(request.getParameter("brand_id"));
         String name = request.getParameter("brandName");
         String country = request.getParameter("brandCountry");
 
         DBConnector.updateBrand(brand_id, name, country);
+
+        request.setAttribute("brands", DBConnector.getAllBrands());
 
         request.getRequestDispatcher("/html/sprint2PanelBrands.jsp").forward(request, response);
     }

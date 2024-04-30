@@ -1,6 +1,4 @@
-<%@ page import="db.Item" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="db.DBManager" %>
 <%@ page import="db.News" %><%--
   Created by IntelliJ IDEA.
   User: bayan
@@ -20,7 +18,8 @@
         <main>
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 <%
-                    for (News n:DBManager.getSomeNews()) {
+                    ArrayList<News> someNews = (ArrayList<News>) request.getAttribute("someNews");
+                    for (News n:someNews) {
                         %>
                 <div class="col">
                     <div class="card h-100">

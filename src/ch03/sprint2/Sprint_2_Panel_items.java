@@ -18,14 +18,18 @@ public class Sprint_2_Panel_items extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
+
+        request.setAttribute("brands", DBConnector.getAllBrands());
+        request.setAttribute("items", DBConnector.getAllItems());
+
         request.getRequestDispatcher("/html/sprint2PanelItems.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        request.setAttribute("id", id);
+        request.setAttribute("user", DBConnector.getUser(id));
 
         String name = request.getParameter("itemName");
         double price = Double.parseDouble(request.getParameter("itemPrice"));
@@ -33,6 +37,9 @@ public class Sprint_2_Panel_items extends HttpServlet {
         String description = request.getParameter("itemDescription");
 
         DBConnector.addItem(new Item(name, description, price, brand_id));
+
+        request.setAttribute("brands", DBConnector.getAllBrands());
+        request.setAttribute("items", DBConnector.getAllItems());
 
         request.getRequestDispatcher("/html/sprint2PanelItems.jsp").forward(request, response);
     }

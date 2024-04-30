@@ -1,6 +1,3 @@
-<%@ page import="db.Item" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="db.DBConnector" %>
 <%--
   Created by IntelliJ IDEA.
   User: bayan

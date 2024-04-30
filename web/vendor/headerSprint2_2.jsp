@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%
-    Long id = (Long) request.getAttribute("id");
-    User user = DBConnector.getUser(id);
+    User user = (User) request.getAttribute("user");
 %>
 <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
