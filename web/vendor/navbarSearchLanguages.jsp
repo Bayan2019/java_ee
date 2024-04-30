@@ -12,7 +12,7 @@
             <button id="headerSearch" type="submit">Search</button>
         </form>
         <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px; margin-left: 5px; margin-right: 2px">
-<%--        <form action="/project/language" method="get" class="d-flex mx-lg-auto mt-3 ul-languages">--%>
+<%--        <form action="/servlets.project/language" method="get" class="d-flex mx-lg-auto mt-3 ul-languages">--%>
 <%--            <select name="language" class="select-language ul-languages">--%>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

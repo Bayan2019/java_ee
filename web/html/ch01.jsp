@@ -87,7 +87,7 @@
             <h3>Task 6</h3>
             <p>
                 Create your first WEB application using  servlets .
-                Your project will be related to managing a list of football players.
+                Your servlets.project will be related to managing a list of football players.
                 You can use ArrayList  as a database  inside a special class  DBManager.java .
             </p>
             <form action="/task_1_6" method="get">
