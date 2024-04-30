@@ -19,13 +19,13 @@
                     <a class="nav-link" href="/project">All News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Culture</a>
+                    <a class="nav-link" href="/project/category?id=1">Culture</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sport</a>
+                    <a class="nav-link" href="/project/category?id=2">Sport</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cinema</a>
+                    <a class="nav-link" href="/project/category?id=3">Finance</a>
                 </li>
             </ul>
         </div>

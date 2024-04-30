@@ -541,4 +541,67 @@ public class DBConnector {
 
         return news;
     }
+    public static ArrayList<News> getNewsByCategory(int category_id) {
+        ArrayList<News> news = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
+                    "WHERE language_id=1 AND category_id=?" +
+                    "ORDER BY id ASC;");
+            statement.setInt(1, category_id);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                News n = new News();
+
+                n.setId(resultSet.getLong("id"));
+                n.setTitle(resultSet.getString("title"));
+                n.setContent(resultSet.getString("content"));
+                n.setAuthor(resultSet.getString("author"));
+                n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
+                n.setPost_date(resultSet.getDate("post_date").toLocalDate());
+
+                news.add(n);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return news;
+    }
+    public static ArrayList<News> getNewsBySearch(String search) {
+        ArrayList<News> news = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
+                    "WHERE (language_id=1) AND " +
+                    "((LOWER(title) LIKE ?) OR" +
+                    "(LOWER(content) LIKE ?) OR" +
+                    "(LOWER(author) LIKE ?))" +
+                    "ORDER BY id ASC;");
+            statement.setString(1, "%"+search.toLowerCase()+"%");
+            statement.setString(2, "%"+search.toLowerCase()+"%");
+            statement.setString(3, "%"+search.toLowerCase()+"%");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                News n = new News();
+
+                n.setId(resultSet.getLong("id"));
+                n.setTitle(resultSet.getString("title"));
+                n.setContent(resultSet.getString("content"));
+                n.setAuthor(resultSet.getString("author"));
+                n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
+                n.setPost_date(resultSet.getDate("post_date").toLocalDate());
+
+                news.add(n);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return news;
+    }
 }

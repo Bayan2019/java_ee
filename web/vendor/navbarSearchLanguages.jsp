@@ -7,8 +7,8 @@
 --%>
 <nav class="navbar navbar-expand-sm ul-reference">
     <div class="container-fluid">
-        <form class="d-flex mx-lg-auto mt-3 header-search input-group" role="search">
-            <input class="form-control me-lg-auto rounded" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex mx-lg-auto mt-3 header-search input-group" role="search" action="/project/search">
+            <input class="form-control me-lg-auto rounded" type="search" placeholder="Search" aria-label="Search" name="search">
             <button id="headerSearch" type="submit">Search</button>
         </form>
         <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px; margin-left: 5px; margin-right: 2px">

@@ -18,7 +18,6 @@
         <%@include file="/vendor/navbarSearchLanguages.jsp"%>
         <main>
             <%
-                int language = Integer.parseInt((String) request.getAttribute("language"));
                 ArrayList<News> someNews = (ArrayList<News>) request.getAttribute("someNews");
                 for (News n: someNews) {
                     %>
