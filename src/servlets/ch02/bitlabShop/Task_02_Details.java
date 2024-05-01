@@ -16,6 +16,6 @@ public class Task_02_Details extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("item", DBManager.getItem(id));
-        request.getRequestDispatcher("/html/bitlabShop/bitlabShopDetails.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch02/bitlabShop/bitlabShopDetails.jsp").forward(request, response);
     }
 }

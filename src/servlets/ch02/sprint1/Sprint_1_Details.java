@@ -15,6 +15,6 @@ public class Sprint_1_Details extends HttpServlet {
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
         request.setAttribute("task", DBManager.getTask(id));
-        request.getRequestDispatcher("/html/sprint1/sprint1Details.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch02/sprint1/sprint1Details.jsp").forward(request, response);
     }
 }

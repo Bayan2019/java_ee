@@ -20,6 +20,6 @@ public class Task_02_category extends HttpServlet {
         ArrayList<News> someNews = DBManager.getCategoryNews(category);
         request.setAttribute("someNews", someNews);
 
-        request.getRequestDispatcher("/html/bitlabNews/bitlabNewsCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch02/bitlabNews/bitlabNewsCategory.jsp").forward(request, response);
     }
 }
