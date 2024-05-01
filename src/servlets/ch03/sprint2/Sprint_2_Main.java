@@ -17,6 +17,6 @@ public class Sprint_2_Main extends HttpServlet {
 
         request.setAttribute("items", DBConnector.getAllItems());
 
-        request.getRequestDispatcher("/html/sprint2Main.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch03/sprint2/sprint2Main.jsp").forward(request, response);
     }
 }

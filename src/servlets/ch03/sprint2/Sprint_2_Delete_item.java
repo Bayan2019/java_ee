@@ -25,6 +25,6 @@ public class Sprint_2_Delete_item extends HttpServlet {
         request.setAttribute("brands", DBConnector.getAllBrands());
         request.setAttribute("items", DBConnector.getAllItems());
 
-        request.getRequestDispatcher("/html/sprint2PanelItems.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch03/sprint2/sprint2PanelItems.jsp").forward(request, response);
     }
 }

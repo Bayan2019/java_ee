@@ -27,7 +27,6 @@ public class Task_05_Edit extends HttpServlet {
 
         DBConnector.updateCity(id, name, code);
 
-        request.setAttribute("cities", DBConnector.getAllCities());
-        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyMain2.jsp").forward(request, response);
+        response.sendRedirect("/bitlab_academy/cities");
     }
 }

@@ -25,6 +25,6 @@ public class Sprint_2_Delete_brand extends HttpServlet {
 
         request.setAttribute("brands", DBConnector.getAllBrands());
 
-        request.getRequestDispatcher("/html/sprint2PanelBrands.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch03/sprint2/sprint2PanelBrands.jsp").forward(request, response);
     }
 }

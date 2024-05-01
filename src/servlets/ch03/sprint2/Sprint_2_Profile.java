@@ -16,6 +16,6 @@ public class Sprint_2_Profile extends HttpServlet {
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
         request.setAttribute("user", DBConnector.getUser(id));
-        request.getRequestDispatcher("/html/sprint2Profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch03/sprint2/sprint2Profile.jsp").forward(request, response);
     }
 }

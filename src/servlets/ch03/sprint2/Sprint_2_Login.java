@@ -16,7 +16,7 @@ public class Sprint_2_Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("errorLogin", false);
-        request.getRequestDispatcher("/html/sprint2Login.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch03/sprint2/sprint2Login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -28,10 +28,10 @@ public class Sprint_2_Login extends HttpServlet {
 
         if (user.getId()==null) {
             request.setAttribute("errorLogin", true);
-            request.getRequestDispatcher("/html/sprint2Login.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/ch03/sprint2/sprint2Login.jsp").forward(request, response);
         } else {
             request.setAttribute("user", user);
-            request.getRequestDispatcher("/html/sprint2Profile.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/ch03/sprint2/sprint2Profile.jsp").forward(request, response);
         }
     }
 }
