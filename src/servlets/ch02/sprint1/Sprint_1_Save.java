@@ -33,9 +33,8 @@ public class Sprint_1_Save extends HttpServlet {
         task.setCompleted(completed);
 
         int i = DBManager.getTaskIndex(id);
-        System.out.println(i);
         DBManager.updateTasks(i, task);
 
-        request.getRequestDispatcher("/html/sprint1Main.jsp").forward(request, response);
+        response.sendRedirect("/sprint_1");
     }
 }

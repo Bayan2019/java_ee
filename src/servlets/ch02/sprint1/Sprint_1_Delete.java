@@ -19,6 +19,6 @@ public class Sprint_1_Delete extends HttpServlet {
 
         DBManager.deleteTask(id);
 
-        request.getRequestDispatcher("/html/sprint1Main.jsp").forward(request, response);
+        response.sendRedirect("/sprint_1");
     }
 }
