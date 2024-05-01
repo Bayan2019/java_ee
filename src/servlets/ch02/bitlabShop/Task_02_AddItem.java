@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Task_02_AddItem extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/html/bitlabShopAddItem.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabShop/bitlabShopAddItem.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
