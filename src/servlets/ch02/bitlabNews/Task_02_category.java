@@ -16,13 +16,10 @@ public class Task_02_category extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int category = Integer.parseInt(request.getParameter("category"));
-//        Set<int> categories = Set.of(1, 2, 3);
-//        if (categories.contains(category)) {
-//            DBManager.setSomeNews(DBManager.getCategoryNews(category));
-//        }
+
         ArrayList<News> someNews = DBManager.getCategoryNews(category);
         request.setAttribute("someNews", someNews);
 
-        request.getRequestDispatcher("/html/bitlabNewsCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabNews/bitlabNewsCategory.jsp").forward(request, response);
     }
 }

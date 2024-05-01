@@ -14,6 +14,6 @@ public class Task_02_Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("news", DBManager.getAllNews());
-        request.getRequestDispatcher("/html/bitlabNewsMain.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabNews/bitlabNewsMain.jsp").forward(request, response);
     }
 }
