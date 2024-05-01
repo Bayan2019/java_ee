@@ -6,4 +6,5 @@
   To change this template use File | Settings | File Templates.
 --%>
 <link rel="stylesheet" type="text/css" href="/links/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/links/css/bootstrap-icons.css">
 <script src="/links/js/bootstrap.bundle.min.js"></script>

@@ -16,6 +16,9 @@
     String fieldsetColor = "#043707";
     String buttonColor = "#850000";
     String buttonHover = "#B5F08E";
+    String btnDangerLightBackground = "#ffc0cb";
+    String buttonHover2 = "#4df698";
+    String dangerZoneHover = "#f12d41";
 %>
 <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Bayan2019/project02/main/images/logos4.png" />
 <title>Java EEs</title>
@@ -47,7 +50,7 @@
         border: <%=headerColor%> solid 3px;
     }
     main form button:hover {
-        background-image: radial-gradient(<%=headerColor%>, <%=fieldsetLegend%>);
+        background-image: radial-gradient(<%=headerColor%>, <%=buttonHover2%>);
         color: <%=bodyBackground%>;
         border: <%=fieldsetLegend%> solid 3px;
     }
@@ -84,4 +87,11 @@
         background-color: #cee5f2;
         color: #6279b8;
     }
+    svg {
+        vertical-align: middle;
+    }
+    .navbar .container-fluid .navbar-nav .nav-item .danger-zone:hover {
+        color: <%=dangerZoneHover%>;
+    }
+
 </style>

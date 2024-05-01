@@ -1,10 +1,10 @@
 package db;
 
 public class User {
-    Long id;
-    String email;
-    String password;
-    String fullName;
+    private Long id;
+    private String email;
+    private String password;
+    private String fullName;
 
     public User() {}
 
@@ -13,6 +13,11 @@ public class User {
     public void setPassword(String password) {this.password=password;}
     public void setFullName(String fullName) {this.fullName=fullName;}
 
+    public User(String email, String password, String fullName) {
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setFullName(fullName);
+    }
     public User(Long id, String email, String password, String fullName) {
         this.setId(id);
         this.setEmail(email);

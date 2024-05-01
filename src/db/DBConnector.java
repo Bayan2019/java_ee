@@ -243,7 +243,6 @@ public class DBConnector {
 
         return user;
     }
-
     public static User getUser(Long id) {
         User user = new User();
 
@@ -264,6 +263,40 @@ public class DBConnector {
         }
 
         return user;
+    }
+    public static void addUser(User user) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
+                    "users (email, password, fullName) " +
+                    "VALUES (?, ?, ?);");
+            statement.setString(1,user.getEmail());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getFullName());
+
+            statement.executeUpdate();
+
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static ArrayList<String> getUserEmails() {
+        ArrayList<String> emails = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT email FROM users;");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                emails.add(resultSet.getString("email"));
+            }
+            statement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return emails;
     }
 
     // City ///////////// City ///////////// City ////////////////
@@ -341,7 +374,6 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
-
     public static void deleteCity(Long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM cities WHERE id=?;");
@@ -443,7 +475,7 @@ public class DBConnector {
         }
     }
 
-    // Brand ///////////// Brand ///////////// Brand ////////////////
+    // Country ///////////// Country ///////////// Country ////////////////
     public static ArrayList<Country> getAllCountries() {
         ArrayList<Country> countries = new ArrayList<>();
 
