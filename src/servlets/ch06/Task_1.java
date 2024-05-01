@@ -29,7 +29,7 @@ public class Task_1 extends HttpServlet {
         }
 
         request.setAttribute("siteName", myCookieValue);
-        request.getRequestDispatcher("/html/cookies.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch06/cookies.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -6,7 +6,7 @@
         <%@include file="/vendor/styleMain.jsp"%>
     </head>
     <body>
-        <%@include file="../vendor/headerMain.jsp"%>
+        <%@include file="../../vendor/headerMain.jsp"%>
         <main>
             <h2>Installing and Running Java EE</h2>
             <h3><a href="/task_1_1">Task 1</a></h3>
