@@ -31,13 +31,12 @@ public class Logout extends HttpServlet {
 
         if (user.getId()==null) {
             request.setAttribute("errorLogin", true);
-            request.getRequestDispatcher("/html/projectLogin.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/project/projectLogin.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", user);
 
             response.sendRedirect("/project");
-            //request.getRequestDispatcher("/html/projectProfile.jsp").forward(request, response);
         }
     }
 }

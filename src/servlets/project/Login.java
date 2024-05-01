@@ -15,7 +15,7 @@ public class Login extends HttpServlet {
 
         request.setAttribute("errorLogin", false);
 
-        request.getRequestDispatcher("/html/projectLogin.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/project/projectLogin.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
 
         if (user.getId()==null) {
             request.setAttribute("errorLogin", true);
-            request.getRequestDispatcher("/html/projectLogin.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/project/projectLogin.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", user);

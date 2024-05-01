@@ -36,6 +36,6 @@ public class Main extends HttpServlet {
         request.setAttribute("someNews", DBConnector.getNewsByLanguage(Integer.parseInt(language)));
         request.setAttribute("language", language);
 
-        request.getRequestDispatcher("/html/projectMain.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/project/projectMain.jsp").forward(request, response);
     }
 }

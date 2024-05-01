@@ -18,7 +18,7 @@ public class Register extends HttpServlet {
 
         request.setAttribute("errorRegister", false);
 
-        request.getRequestDispatcher("/html/projectRegister.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/project/projectRegister.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,13 +30,13 @@ public class Register extends HttpServlet {
 
         if (DBConnector.getUserEmails().contains(email)) {
             request.setAttribute("errorRegister", true);
-            request.getRequestDispatcher("/html/projectRegister.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/project/projectRegister.jsp").forward(request, response);
         } else {
             User user = new User(email, password, fullName);
             DBConnector.addUser(user);
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", DBConnector.getUserByEmailPassword(email, password));
-            request.getRequestDispatcher("/html/projectProfile.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/project/projectProfile.jsp").forward(request, response);
         }
     }
 }

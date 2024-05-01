@@ -18,6 +18,6 @@ public class Category extends HttpServlet {
 
         request.setAttribute("someNews", DBConnector.getNewsByCategory(category_id));
 
-        request.getRequestDispatcher("/html/projectMain.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/project/projectMain.jsp").forward(request, response);
     }
 }
