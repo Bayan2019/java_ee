@@ -32,9 +32,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", user);
-
             response.sendRedirect("/project");
-            //request.getRequestDispatcher("/html/projectProfile.jsp").forward(request, response);
         }
     }
 }

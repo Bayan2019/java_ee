@@ -17,7 +17,7 @@ public class Task_04_Edit extends HttpServlet {
         request.setAttribute("student", DBConnector.getStudent(id));
         request.setAttribute("cities", DBConnector.getAllCities());
 
-        request.getRequestDispatcher("/html/bitlabAcademyEdit.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyEdit.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -34,6 +34,6 @@ public class Task_04_Edit extends HttpServlet {
         request.setAttribute("students", DBConnector.getAllStudents());
         request.setAttribute("cities", DBConnector.getAllCities());
 
-        request.getRequestDispatcher("/html/bitlabAcademyMain.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyMain.jsp").forward(request, response);
     }
 }

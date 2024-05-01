@@ -15,7 +15,7 @@ public class Task_05_Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("cities", DBConnector.getAllCities());
-        request.getRequestDispatcher("/html/bitlabAcademyMain2.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyMain2.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -26,6 +26,6 @@ public class Task_05_Main extends HttpServlet {
 
         DBConnector.addCity(new City(name, code));
         request.setAttribute("cities", DBConnector.getAllCities());
-        request.getRequestDispatcher("/html/bitlabAcademyMain2.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyMain2.jsp").forward(request, response);
     }
 }

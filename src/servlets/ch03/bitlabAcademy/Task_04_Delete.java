@@ -22,6 +22,6 @@ public class Task_04_Delete extends HttpServlet {
         request.setAttribute("students", DBConnector.getAllStudents());
         request.setAttribute("cities", DBConnector.getAllCities());
 
-        request.getRequestDispatcher("/html/bitlabAcademyMain.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyMain.jsp").forward(request, response);
     }
 }

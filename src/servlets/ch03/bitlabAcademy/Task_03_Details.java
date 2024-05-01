@@ -16,6 +16,6 @@ public class Task_03_Details extends HttpServlet {
             throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
         request.setAttribute("student", DBConnector.getStudent(id));
-        request.getRequestDispatcher("/html/bitlabAcademyDetails.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/bitlabAcademy/bitlabAcademyDetails.jsp").forward(request, response);
     }
 }
