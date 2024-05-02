@@ -12,28 +12,23 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(value = "/sessions")
-public class Sessions extends HttpServlet {
+@WebServlet(value = "/sessions/basket")
+public class Task_2 extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String stage = (String) request.getSession().getAttribute("stage");
-        if (stage==null) {
-            stage = "1";
-        }
-
-        request.setAttribute("stage", stage);
-        request.setAttribute("cities", DBConnector.getAllCities());
-        request.setAttribute("items", DBConnector.getAllItems());
+        Long item_id = Long.parseLong(request.getParameter("item_id"));
+        Item item = DBConnector.getItem(item_id);
 
         ArrayList<Item> basketItems = (ArrayList<Item>) request.getSession().getAttribute("basketItems");
         if (basketItems==null) {
             basketItems = new ArrayList<>();
         }
+        basketItems.add(item);
 
-        request.setAttribute("basketItems", basketItems);
+        request.getSession().setAttribute("basketItems", basketItems);
 
-        request.getRequestDispatcher("/html/ch07/sessions.jsp").forward(request, response);
+        response.sendRedirect("/sessions");
     }
 }

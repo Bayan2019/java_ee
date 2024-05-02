@@ -1,6 +1,4 @@
-<%@ page import="db.Country" %>
-<%@ page import="db.DBConnector" %>
-<%@ page import="db.Translations" %><%--
+<%@ page import="db.*" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/21/24
@@ -18,7 +16,7 @@
         <%@include file="/vendor/headerMain.jsp"%>
         <main>
             <h1>Chapter 7. Sessions -- HttpSesssion interface</h1>
-            <h3>Task 1</h3>
+            <h2>Task 1</h2>
             <p>
                 Create an application where you fill out a form step by step.
                 You will create multiple pages, and each page will have different shapes.
@@ -48,7 +46,10 @@
                 }
             %>
 
-            <h3>Task 2</h3>
+            <br>
+            <br>
+
+            <h2>Task 2</h2>
 
             <p>
                 Create a web application in which I can view a list of products in a store.
@@ -69,5 +70,55 @@
                 As a result, I should be able to see all the items in my cart.
                 Products may be repeated, if for example I want to buy 2 or 3 adidas sneakers.
             </p>
+
+            <%
+                ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
+                ArrayList<Item> basketItems = (ArrayList<Item>) request.getAttribute("basketItems");
+            %>
+
+            <div class="row">
+                <div class="col-5">
+                    <h4>PRODUCTS</h4>
+                    <%
+                        for (Item item:items) {
+                            %>
+                    <div class="card">
+                        <div class="card-header">
+                            <%=item.getName()%>
+                        </div>
+                        <form class="card-body" action="/sessions/basket" method="post">
+                            <h5 class="card-title"><%=item.getPrice()%> $</h5>
+                            <input type="hidden" name="item_id" value="<%=item.getId()%>">
+                            <button class="btn btn-primary">ADD TO CARD</button>
+                        </form>
+                    </div> <br>
+                    <%
+                        }
+                    %>
+                </div>
+
+                <div class="vr"></div>
+
+                <div class="col-5">
+                    <h4>BASKET</h4>
+                    <%
+                        for (Item item:basketItems) {
+                    %>
+                    <div class="card">
+                        <div class="card-header">
+                            <%=item.getName()%>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%=item.getPrice()%> $</h5>
+                        </div>
+                    </div> <br>
+                    <br>
+                    <%
+                        }
+                    %>
+                </div>
+            </div>
+
+        </main>
     </body>
 </html>
