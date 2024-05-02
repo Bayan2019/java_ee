@@ -111,7 +111,8 @@ to connect it with the table `brands`.
 ## Sessions
 
 - [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/servlets/ch07)
-- [Task 2]
+- [Task 2](https://github.com/Bayan2019/java_ee/blob/master/src/servlets/ch07/Task_2.java)
+- [Task 3](https://github.com/Bayan2019/java_ee/blob/master/src/servlets/project/Login.java) -- Project -- Login Servlet
 
 ## Authentication, Registration, Adding a Blog, and Comments
 
