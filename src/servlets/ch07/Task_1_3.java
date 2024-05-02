@@ -9,23 +9,23 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(value = "/sessions/task_1_1")
-public class Task_1_1 extends HttpServlet {
+@WebServlet(value = "/sessions/task_1_3")
+public class Task_1_3 extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String task1Name = request.getParameter("task1Name");
-        String task1Surname = request.getParameter("task1Surname");
-        String task1Age = request.getParameter("task1Age");
+        String task1University = request.getParameter("task1University");
+        String task1Faculty = request.getParameter("task1Faculty");
+        String task1Group = request.getParameter("task1Group");
 
         HttpSession session = request.getSession();
 
-        session.setAttribute("task1Name", task1Name);
-        session.setAttribute("task1Surname", task1Surname);
-        session.setAttribute("task1Age", task1Age);
+        session.setAttribute("task1University", task1University);
+        session.setAttribute("task1Faculty", task1Faculty);
+        session.setAttribute("task1Group", task1Group);
 
-        session.setAttribute("stage", "2");
+        session.setAttribute("stage", "finish");
 
         response.sendRedirect("/sessions");
     }
