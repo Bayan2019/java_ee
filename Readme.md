@@ -110,6 +110,9 @@ to connect it with the table `brands`.
 
 ## Sessions
 
+- [Task 1](https://github.com/Bayan2019/java_ee/tree/master/src/servlets/ch07)
+- [Task 2]
+
 ## Authentication, Registration, Adding a Blog, and Comments
 
 - [Project](https://github.com/Bayan2019/java_ee/tree/master/src/servlets/project)
