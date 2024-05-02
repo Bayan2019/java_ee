@@ -50,6 +50,24 @@
 
             <h3>Task 2</h3>
 
-            <h3>Task 3</h3>
+            <p>
+                Create a web application in which I can view a list of products in a store.
+            </p>
+
+            <p>
+                It turns out that I should have a ready-made list of products,
+                which I display on the main page.
+            </p>
+
+            <p>
+                I need to be able to add an item to my cart every time.
+                You must store the cart in a session.
+                It turns out that I will have an array of products in my session.
+            </p>
+
+            <p>
+                As a result, I should be able to see all the items in my cart.
+                Products may be repeated, if for example I want to buy 2 or 3 adidas sneakers.
+            </p>
     </body>
 </html>

@@ -36,7 +36,7 @@ public class Register extends HttpServlet {
             DBConnector.addUser(user);
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", DBConnector.getUserByEmailPassword(email, password));
-            request.getRequestDispatcher("/html/project/projectProfile.jsp").forward(request, response);
+            response.sendRedirect("/profile");
         }
     }
 }
