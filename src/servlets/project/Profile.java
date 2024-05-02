@@ -22,7 +22,7 @@ public class Profile extends HttpServlet {
             System.out.println(user);
             request.getRequestDispatcher("/html/project/403.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("/html/project/projectProfile.jsp").forward(request, response);
+            request.getRequestDispatcher("/html/project/profile.jsp").forward(request, response);
         }
     }
 

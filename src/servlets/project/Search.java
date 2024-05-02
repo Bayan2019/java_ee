@@ -18,6 +18,6 @@ public class Search extends HttpServlet {
 
         request.setAttribute("someNews", DBConnector.getNewsBySearch(search));
 
-        request.getRequestDispatcher("/html/project/projectMain.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/project/main.jsp").forward(request, response);
     }
 }
