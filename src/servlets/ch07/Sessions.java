@@ -15,10 +15,6 @@ public class Sessions extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-
-        String task1Name = (String) session.getAttribute("task1Name");
-
-        request.getRequestDispatcher("/html/session.jsp").forward(request, response);
+        request.getRequestDispatcher("/html/ch07/session.jsp").forward(request, response);
     }
 }
