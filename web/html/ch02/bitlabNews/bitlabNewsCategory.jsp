@@ -32,7 +32,7 @@
                             <p class="card-text"><%=n.getContent()%></p>
                         </div>
                         <div class="card-footer" style="color: <%=detailsColor%>; background-color: <%=brandColor%>">
-                            by <%=n.getAuthor()%>
+                            by <%=n.getAuthor().getFullName()%>
                         </div>
                     </div>
                 </div>

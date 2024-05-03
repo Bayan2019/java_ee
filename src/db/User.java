@@ -13,6 +13,7 @@ public class User {
     public void setPassword(String password) {this.password=password;}
     public void setFullName(String fullName) {this.fullName=fullName;}
 
+    public User(String fullName) {this.setFullName(fullName);}
     public User(String email, String password, String fullName) {
         this.setEmail(email);
         this.setPassword(password);

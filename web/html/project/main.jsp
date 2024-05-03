@@ -26,7 +26,7 @@
                     <h5><strong><%=n.getTitle()%></strong></h5>
                 </div>
                 <div class="card-body" style="background-color: #E7F8F0;">
-                    <h6 class="card-title text-body-secondary">by <%=n.getAuthor()%></h6>
+                    <h6 class="card-title text-body-secondary">by <%=n.getAuthor().getFullName()%></h6>
                     <div class="card-text"><%=n.getContent()%></div>
                 </div>
                 <div class="card-footer">

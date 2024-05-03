@@ -205,7 +205,6 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
-
     public static void deleteItem(Long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE id=?;");
@@ -560,7 +559,7 @@ public class DBConnector {
                 n.setId(resultSet.getLong("id"));
                 n.setTitle(resultSet.getString("title"));
                 n.setContent(resultSet.getString("content"));
-                n.setAuthor(resultSet.getString("author"));
+                n.setAuthor(getUser(resultSet.getLong("author_id")));
                 n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
                 n.setPost_date(resultSet.getDate("post_date").toLocalDate());
 
@@ -589,7 +588,7 @@ public class DBConnector {
                 n.setId(resultSet.getLong("id"));
                 n.setTitle(resultSet.getString("title"));
                 n.setContent(resultSet.getString("content"));
-                n.setAuthor(resultSet.getString("author"));
+                n.setAuthor(getUser(resultSet.getLong("author_id")));
                 n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
                 n.setPost_date(resultSet.getDate("post_date").toLocalDate());
 
@@ -610,8 +609,9 @@ public class DBConnector {
                     "WHERE (language_id=1) AND " +
                     "((LOWER(title) LIKE ?) OR" +
                     "(LOWER(content) LIKE ?) OR" +
-                    "(LOWER(author) LIKE ?))" +
-                    "ORDER BY id ASC;");
+                    "(author_id IN (SELECT id FROM users " +
+                    "WHERE LOWER(fullName) LIKE ?)))" +
+                    "ORDER BY title ASC;");
             statement.setString(1, "%"+search.toLowerCase()+"%");
             statement.setString(2, "%"+search.toLowerCase()+"%");
             statement.setString(3, "%"+search.toLowerCase()+"%");
@@ -623,7 +623,7 @@ public class DBConnector {
                 n.setId(resultSet.getLong("id"));
                 n.setTitle(resultSet.getString("title"));
                 n.setContent(resultSet.getString("content"));
-                n.setAuthor(resultSet.getString("author"));
+                n.setAuthor(getUser(resultSet.getLong("author_id")));
                 n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
                 n.setPost_date(resultSet.getDate("post_date").toLocalDate());
 
