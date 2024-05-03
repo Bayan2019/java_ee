@@ -117,3 +117,73 @@ to connect it with the table `brands`.
 ## Authentication, Registration, Adding a Blog, and Comments
 
 - [Project](https://github.com/Bayan2019/java_ee/tree/master/src/servlets/project)
+
+First we create `news` table 
+>`CREATE TABLE news(`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title VARCHAR(255),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`content TEXT,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`author VARCHAR(255),`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`category_id INTEGER,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`language_id INTEGER,`\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`post_date TIMESTAMP`\
+>`);`
+
+We can also create `categories` table
+
+>`CREATE TABLE categories(`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id SERIAL PRIMARY KEY,`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name VARCHAR(255)`\
+>`);`
+
+and `languages` table
+
+>`CREATE TABLE languages(`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id SERIAL PRIMARY KEY,`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name VARCHAR(255),`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`alpha2 VARCHAR(2),`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`alpha3 VARCHAR(3)`\
+>`);`
+
+Then we decide to put default value for the `post_date` column:
+>`ALTER TABLE news`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ALTER COLUMN post_date SET DEFAULT NOW();`
+
+and add foreign key
+
+>`ALTER TABLE news`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ADD COLUMN author_id BIGINT;`
+
+with setted values
+
+>`UPDATE news SET author_id=users.id`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`FROM users`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`WHERE users.fullname=author;`
+
+and foreign constraint
+>`ALTER TABLE news`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ADD CONSTRAINT author_id_fkey`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`FOREIGN KEY (author_id) REFERENCES users (id);`
+
+Therefore, we can drop author column
+>`ALTER TABLE news`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`DROP COLUMN author;`
+
+By the way we can two other foreign key constraints
+>`ALTER TABLE news`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ADD CONSTRAINT category_id_fkey`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`FOREIGN KEY (category_id) REFERENCES categories (id);`
+
+and 
+
+>`ALTER TABLE news`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ADD CONSTRAINT language_id_fkey`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`FOREIGN KEY (language_id) REFERENCES languages (id);`
+
+Then we edit `users` table with queries:
+>`ALTER TABLE users`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`ADD CONSTRAINT unique_emails UNIQUE(email);`
+
+and
+>`ALTER TABLE users`\
+>`ADD COLUMN role_id INTEGER DEFAULT 2;`
