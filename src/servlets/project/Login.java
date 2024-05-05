@@ -14,7 +14,6 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
 
         request.setAttribute("errorLogin", false);
-
         request.getRequestDispatcher("/html/project/login.jsp").forward(request, response);
     }
 
@@ -32,6 +31,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", user);
+
             response.sendRedirect("/project/profile");
         }
     }

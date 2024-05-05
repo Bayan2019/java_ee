@@ -112,7 +112,7 @@
                 <label><strong><%=Translations.translations.get(language).get(4)%>: </strong></label>
                 <input type="text"><br>
                 <br>
-                <button><%=Translations.translations.get(language).get(5)%></button>
+                <button class="btn"><%=Translations.translations.get(language).get(5)%></button>
             </form>
         </main>
     </body>

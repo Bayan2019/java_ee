@@ -32,7 +32,7 @@
                 <input type ='text' name = 'studentName' class='form-control w-50 mb-3' />
                 <label class ='mb-3'>SURNAME: </label>
                 <input type ='text' name ='studentSurname' class='form-control w-50 mb-3' />
-                <button>SEND</button>
+                <button class="btn">SEND</button>
             </form>
             <h3>Task 4</h3>
             <p>
@@ -57,8 +57,8 @@
                     <option value="Kebab - 1000 KZT">Kebab - 1000 KZT</option>
                     <option value="Pilaf - 500 KZT">Pilaf - 500 KZT</option>
                     <option value="Hamburger - 1250 KZT">Hamburger - 1250 KZT</option>
-                </select>
-                <button>Order</button>
+                </select><br>
+                <button class="btn">Order</button>
             </form>
             <h3>Task 5</h3>
             <p>
@@ -69,11 +69,11 @@
             <form action="/task_1_5" method="get">
                 <fieldset>
                     <legend>FULL NAME: </legend>
-                    <input class="input-fieldset" type ='text' name = 'fullName' />
+                    <input class="input-fieldset" type ='text' name = 'fullName' class='form-control w-50 mb-3' />
                 </fieldset>
                 <fieldset>
                     <legend>AGE: </legend>
-                    <input class="input-fieldset" type ='number' name ='age' />
+                    <input class="input-fieldset" type ='number' name ='age' class='form-control w-50 mb-3' />
                 </fieldset>
                 <fieldset>
                     <legend>GENDER: </legend>
@@ -82,7 +82,7 @@
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label>
                 </fieldset>
-                <button>SEND</button>
+                <button class="btn">SEND</button>
             </form>
             <h3>Task 6</h3>
             <p>
@@ -93,13 +93,13 @@
             <form action="/task_1_6" method="get">
                 <fieldset>
                     <legend>FULL NAME: </legend>
-                    <input class="input-fieldset" type ='text' name = 'fullName' />
+                    <input class="input-fieldset" type ='text' name = 'fullName' class='form-control w-50 mb-3' />
                 </fieldset>
                 <fieldset>
                     <legend>EXAM POINTS: </legend>
-                    <input class="input-fieldset" type ='number' name ='points' />
+                    <input class="input-fieldset" type ='number' name ='points' class='form-control w-50 mb-3' />
                 </fieldset>
-                <button>SUBMIT EXAM</button>
+                <button class="btn">SUBMIT EXAM</button>
             </form>
             <h3>Task 7</h3>
             <p>
@@ -125,7 +125,7 @@
                 <input type ='text' name = 'playerSalary' class='form-control w-50 mb-3' />
                 <label class ='mb-3'>TRANSFER PRICE: </label>
                 <input type ='text' name = 'playerTransferPrice' class='form-control w-50 mb-3' />
-                <button>ADD FOOTBALLER</button>
+                <button class="btn">ADD FOOTBALLER</button>
             </form>
         </main>
     </body>

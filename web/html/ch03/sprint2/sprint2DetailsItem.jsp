@@ -30,7 +30,7 @@
                 <select name="itemBrand">
                     <%
                         ArrayList<Brand> brands = (ArrayList<Brand>) request.getAttribute("brands");
-                        for (Brand brand: DBConnector.getAllBrands()) {
+                        for (Brand brand: brands) {
                     %>
                     <option <%=item.getBrand().getId().equals(brand.getId()) ? "selected" : ""%>
                             value="<%=brand.getId()%>">

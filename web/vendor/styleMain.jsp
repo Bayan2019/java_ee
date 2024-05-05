@@ -16,7 +16,7 @@
     String fieldsetColor = "#043707";
     String buttonColor = "#850000";
     String buttonHover = "#B5F08E";
-    String btnDangerLightBackground = "#ffc0cb";
+    String btnDangerLightBackground = "#ff4dff";
     String buttonHover2 = "#4df698";
     String dangerZoneHover = "#f12d41";
 %>
@@ -40,7 +40,20 @@
         padding: 5px;
         margin: 3px;
     }
-    main form button {
+    main button.btn-danger {
+        font-weight: 700;
+        padding: 3px 12px;
+        margin: 4px;
+        border-radius: 5px;
+        color: <%=bodyBackground%>;
+        background-color: red;
+        border: red solid 3px
+    }
+    main button.btn-danger:hover {
+        background-color: <%=btnDangerLightBackground%>;
+        color: red;
+    }
+    main button.btn {
         font-weight: 700;
         padding: 3px 12px;
         margin: 4px;
@@ -49,7 +62,21 @@
         color: <%=bodyBackground%>;
         border: <%=headerColor%> solid 3px;
     }
-    main form button:hover {
+    main button.btn:hover {
+        background-image: radial-gradient(<%=headerColor%>, <%=buttonHover2%>);
+        color: <%=bodyBackground%>;
+        border: <%=fieldsetLegend%> solid 3px;
+    }
+    main .btn {
+        font-weight: 700;
+        padding: 3px 12px;
+        margin: 4px;
+        border-radius: 5px;
+        background-image: radial-gradient(<%=fieldsetLegend%>, <%=headerColor%>);
+        color: <%=bodyBackground%>;
+        border: <%=headerColor%> solid 3px;
+    }
+    main .btn:hover {
         background-image: radial-gradient(<%=headerColor%>, <%=buttonHover2%>);
         color: <%=bodyBackground%>;
         border: <%=fieldsetLegend%> solid 3px;
@@ -90,7 +117,7 @@
     svg {
         vertical-align: middle;
     }
-    .navbar .container-fluid .navbar-nav .nav-item .danger-zone:hover {
+    .danger-zone:hover {
         color: <%=dangerZoneHover%>;
     }
 

@@ -40,7 +40,7 @@
                 <label for="projectLoginPassword">PASSWORD: </label>
                 <input id="projectLoginPassword" name="projectLoginPassword" type="password" class="form-control"><br>
 
-                <button>Sign In</button>
+                <button class="btn">Sign In</button>
             </form>
         </main>
     </body>

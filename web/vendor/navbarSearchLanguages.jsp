@@ -12,8 +12,6 @@
             <button id="headerSearch" type="submit">Search</button>
         </form>
         <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px; margin-left: 5px; margin-right: 2px">
-<%--        <form action="/servlets.project/language" method="get" class="d-flex mx-lg-auto mt-3 ul-languages">--%>
-<%--            <select name="language" class="select-language ul-languages">--%>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2" viewBox="0 0 16 16">
@@ -42,7 +40,5 @@
                 </ul>
             </li>
         </ul>
-<%--            </select>--%>
-<%--        </form>--%>
     </div>
 </nav>

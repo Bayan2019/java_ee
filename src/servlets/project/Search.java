@@ -17,6 +17,8 @@ public class Search extends HttpServlet {
         String search = request.getParameter("search");
 
         request.setAttribute("someNews", DBConnector.getNewsBySearch(search));
+        request.setAttribute("languages", DBConnector.getAllLanguages());
+        request.setAttribute("categories", DBConnector.getAllCategories());
 
         request.getRequestDispatcher("/html/project/main.jsp").forward(request, response);
     }

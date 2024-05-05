@@ -47,7 +47,6 @@ public class DBConnector {
 
         return students;
     }
-
     public static void addStudent(Student student) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
@@ -65,7 +64,6 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
-
     public static Student getStudent(Long id) {
         Student student = new Student();
 
@@ -89,7 +87,6 @@ public class DBConnector {
 
         return student;
     }
-
     public static void updateStudent(Long id, String name, String surname, String birthdate, Long city_id) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE students " +
@@ -108,7 +105,6 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
-
     public static void deleteStudent(Long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM students WHERE id=?;");
@@ -127,7 +123,8 @@ public class DBConnector {
         ArrayList<Item> items = new ArrayList<>();
 
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM items ORDER BY id ASC;");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM items " +
+                    "ORDER BY id ASC;");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -234,6 +231,7 @@ public class DBConnector {
                 user.setId(resultSet.getLong("id"));
                 user.setEmail(resultSet.getString("email"));
                 user.setFullName(resultSet.getString("fullName"));
+                user.setRole_id(resultSet.getInt("role_id"));
             }
             statement.close();
         } catch (Exception e) {
@@ -255,6 +253,7 @@ public class DBConnector {
                 user.setId(id);
                 user.setEmail(resultSet.getString("email"));
                 user.setFullName(resultSet.getString("fullName"));
+                user.setRole_id(resultSet.getInt("role_id"));
             }
             statement.close();
         } catch (Exception e) {
@@ -503,7 +502,8 @@ public class DBConnector {
         Category category = new Category();
 
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM categories WHERE id=?;");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM categories " +
+                    "WHERE id=?;");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
 
@@ -518,6 +518,29 @@ public class DBConnector {
         }
 
         return category;
+    }
+    public static ArrayList<Category> getAllCategories() {
+        ArrayList<Category> categories = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM categories " +
+                    "ORDER BY name ASC;");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Category category = new Category();
+
+                category.setId(resultSet.getInt("id"));
+                category.setName(resultSet.getString("name"));
+
+                categories.add(category);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return categories;
     }
 
     // Language ///////////// Language ///////////// Language ////////////////
@@ -541,6 +564,30 @@ public class DBConnector {
 
         return language;
     }
+    public static ArrayList<Language> getAllLanguages() {
+        ArrayList<Language> languages = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM languages " +
+                    "ORDER BY name ASC;");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Language language = new Language();
+
+                language.setId(resultSet.getInt("id"));
+                language.setName(resultSet.getString("name"));
+                language.setAlpha2(resultSet.getString("alpha2"));
+
+                languages.add(language);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return languages;
+    }
 
     // News ///////////// News ///////////// News ////////////////
     public static ArrayList<News> getNewsByLanguage(int language_id) {
@@ -549,7 +596,7 @@ public class DBConnector {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
                     "WHERE language_id=?" +
-                    "ORDER BY id ASC;");
+                    "ORDER BY post_date DESC;");
             statement.setInt(1, language_id);
             ResultSet resultSet = statement.executeQuery();
 
@@ -578,7 +625,7 @@ public class DBConnector {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
                     "WHERE language_id=1 AND category_id=?" +
-                    "ORDER BY id ASC;");
+                    "ORDER BY post_date DESC;");
             statement.setInt(1, category_id);
             ResultSet resultSet = statement.executeQuery();
 
@@ -610,8 +657,8 @@ public class DBConnector {
                     "((LOWER(title) LIKE ?) OR" +
                     "(LOWER(content) LIKE ?) OR" +
                     "(author_id IN (SELECT id FROM users " +
-                    "WHERE LOWER(fullName) LIKE ?)))" +
-                    "ORDER BY title ASC;");
+                    "WHERE LOWER(fullName) LIKE ?))) " +
+                    "ORDER BY post_date DESC;");
             statement.setString(1, "%"+search.toLowerCase()+"%");
             statement.setString(2, "%"+search.toLowerCase()+"%");
             statement.setString(3, "%"+search.toLowerCase()+"%");
@@ -635,5 +682,79 @@ public class DBConnector {
         }
 
         return news;
+    }
+    public static News getNews(Long id) {
+        News news = new News();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM news WHERE id=?;");
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                news.setId(resultSet.getLong("id"));
+                news.setTitle(resultSet.getString("title"));
+                news.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
+                news.setLanguage(DBConnector.getLanguage(resultSet.getInt("language_id")));
+                news.setContent(resultSet.getString("content"));
+                news.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                news.setAuthor(DBConnector.getUser(resultSet.getLong("author_id")));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return news;
+    }
+    public static void addNews(String title, String content, int category_id, int language_id, Long author_id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
+                    "news (title, content, category_id, language_id, author_id) " +
+                    "VALUES (?, ?, ?, ?, ?);");
+            statement.setString(1, title);
+            statement.setString(2, content);
+            statement.setInt(3, category_id);
+            statement.setInt(4, language_id);
+            statement.setLong(5, author_id);
+
+            statement.executeUpdate();
+
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void deleteNews(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM news WHERE id=?;");
+
+            statement.setLong(1, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void updateNews(Long id, String title, String content,
+                                  int category_id, int language_id, Long author_id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE news " +
+                    "SET title=?, content=?, category_id=?, language_id=?, author_id=? " +
+                    "WHERE id=?;");
+            statement.setString(1, title);
+            statement.setString(2, content);
+            statement.setInt(3, category_id);
+            statement.setInt(4, language_id);
+            statement.setLong(5, author_id);
+            statement.setLong(6, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

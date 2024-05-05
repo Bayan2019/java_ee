@@ -17,6 +17,8 @@ public class Category extends HttpServlet {
         int category_id = Integer.parseInt(request.getParameter("id"));
 
         request.setAttribute("someNews", DBConnector.getNewsByCategory(category_id));
+        request.setAttribute("languages", DBConnector.getAllLanguages());
+        request.setAttribute("categories", DBConnector.getAllCategories());
 
         request.getRequestDispatcher("/html/project/main.jsp").forward(request, response);
     }

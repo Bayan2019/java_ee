@@ -36,9 +36,12 @@
                 <select name="taskStatus">
                     <option value='<%=(task.getCompleted() ? "yes" : "no")%>'><%=(task.getCompleted() ? "YES" : "NO")%></option>
                     <option value='<%=(!task.getCompleted() ? "yes" : "no")%>'><%=(!task.getCompleted() ? "YES" : "NO")%></option>
-                </select>
-                <button type="submit">SAVE</button>
-                <button type="submit" formaction="/sprint_1/details/delete?id=<%=task.getId()%>">DELETE</button>
+                </select><br>
+                <div class="d-inline-flex">
+                    <button type="submit" class="btn">SAVE</button>
+                    <button type="submit" class="btn-danger"
+                            formaction="/sprint_1/details/delete?id=<%=task.getId()%>">DELETE</button>
+                </div>
             </form>
         </main>
     </body>
