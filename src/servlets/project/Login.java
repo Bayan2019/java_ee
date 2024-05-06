@@ -14,6 +14,7 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
 
         request.setAttribute("errorLogin", false);
+        request.setAttribute("languages", DBConnector.getAllLanguages());
         request.getRequestDispatcher("/html/project/login.jsp").forward(request, response);
     }
 
@@ -27,6 +28,7 @@ public class Login extends HttpServlet {
 
         if (user.getId()==null) {
             request.setAttribute("errorLogin", true);
+            request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();

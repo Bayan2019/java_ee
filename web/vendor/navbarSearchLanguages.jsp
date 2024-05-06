@@ -1,4 +1,4 @@
-<%--
+<%@ page import="db.Language" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/29/24
@@ -19,24 +19,19 @@
                     </svg>
                 </a>
                 <ul class="dropdown-menu">
+                    <%
+                        ArrayList<Language> languages = (ArrayList<Language>) request.getAttribute("languages");
+                        for (Language language:languages) {
+                    %>
                     <li>
                         <form action="/project/languages" method="post" class="reference">
-                            <input type="hidden" name="language" value="1">
-                            <button class="nav-link reference">EN</button>
+                            <input type="hidden" name="language" value=<%=language.getId()%>>
+                            <button class="nav-link reference"><%=language.getAlpha2()%></button>
                         </form>
                     </li>
-                    <li>
-                        <form action="/project/languages" method="post" class="reference">
-                            <input type="hidden" name="language" value="2">
-                            <button class="nav-link reference">KZ</button>
-                        </form>
-                    </li>
-                    <li>
-                        <form action="/project/languages" method="post" class="reference">
-                            <input type="hidden" name="language" value="3">
-                            <button class="nav-link reference">ES</button>
-                        </form>
-                    </li>
+                    <%
+                        }
+                    %>
                 </ul>
             </li>
         </ul>

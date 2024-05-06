@@ -120,5 +120,32 @@
     .danger-zone:hover {
         color: <%=dangerZoneHover%>;
     }
-
+    .talk-bubble {
+        float: left;
+    }
+    .talk-bubble-you {
+        float: right;
+    }
+    .talktext{
+        padding: 7px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        float: left;
+        border: 3px solid #05668d;
+    }
+    .talktext-you{
+        padding: 7px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        float: right;
+        border: 3px solid #a5be00;
+    }
+    .sec {
+        margin-bottom: 1px;
+        font-size: 12px;
+    }
 </style>

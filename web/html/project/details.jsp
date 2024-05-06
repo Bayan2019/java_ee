@@ -1,5 +1,6 @@
 <%@ page import="db.News" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="db.Comment" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/21/24
@@ -30,7 +31,7 @@
                 at <%=news.getPost_date().toString()%>
             </h6>
             <div>
-                <%=news.getContent()%>
+                <%="<p>"+news.getContent().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
             </div>
             <%
                 if (user!=null) {
@@ -60,6 +61,37 @@
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+            <%
+                    }
+                    %>
+            <form class="d-flex mx-lg-auto mt-3 header-search input-group" action="/project/add-comment" method="post">
+                <input type="hidden" name="commentNews" value="<%=news.getId()%>">
+                <input class="form-control me-lg-auto rounded" name="commentComment">
+                <button type="submit" class="btn">Add Comment</button>
+            </form>
+            <%
+                }
+            %>
+            <%
+                ArrayList<Comment> comments = (ArrayList<Comment>) request.getAttribute("comments");
+                for (Comment comment:comments) {
+                    if (user.getId() != comment.getAuthor().getId()) {
+                        %>
+            <div class="talk-bubble">
+                <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date()%></p>
+                <div class="talktext">
+                    <%=comment.getComment()%>
+                </div>
+            </div>
+            <%
+                    } else {
+                        %>
+            <div class="talk-bubble-you">
+                <p class="text-secondary text-end sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date()%></p>
+                <div class="talktext-you">
+                    <%=comment.getComment()%>
                 </div>
             </div>
             <%

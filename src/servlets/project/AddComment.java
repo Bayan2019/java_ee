@@ -1,7 +1,6 @@
 package servlets.project;
 
 import db.DBConnector;
-import db.News;
 import db.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,25 +10,25 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(value = "/project/delete-news")
-public class DeleteNews extends HttpServlet {
+@WebServlet(value = "/project/add-comment")
+public class AddComment extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentUser");
-        Long id = Long.parseLong(request.getParameter("id"));
 
-        News news = DBConnector.getNews(id);
-
-        if (user.getId()!=news.getAuthor().getId()) {
+        if (user==null) {
             request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/403.jsp").forward(request, response);
         } else {
+            String comment = request.getParameter("commentComment");
+            long news_id = Integer.parseInt(request.getParameter("commentNews"));
 
-            DBConnector.deleteNews(id);
-            response.sendRedirect("/project");
+            DBConnector.addComment(comment, user.getId(), news_id);
+
+            response.sendRedirect("/project/details?id="+news_id);
         }
     }
 }

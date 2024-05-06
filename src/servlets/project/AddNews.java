@@ -20,15 +20,13 @@ public class AddNews extends HttpServlet {
         User user = (User) request.getSession().getAttribute("currentUser");
 
         if (user.getRole_id()!=1) {
+            request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/403.jsp").forward(request, response);
         } else {
             String title = request.getParameter("newsTitle");
             int category_id = Integer.parseInt(request.getParameter("newsCategory"));
             int language_id = Integer.parseInt(request.getParameter("newsLanguage"));
             String content = request.getParameter("newsContent");
-
-            content = "<p>" + content + "</p>";
-            content = content.replace("\n\n", "<p>\n\n</p>");
 
             DBConnector.addNews(title, content, category_id, language_id, user.getId());
             response.sendRedirect("/project");

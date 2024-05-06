@@ -21,6 +21,7 @@ public class UpdateNews extends HttpServlet {
         News news = DBConnector.getNews(id);
 
         if (user.getId()!=news.getAuthor().getId()) {
+            request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/403.jsp").forward(request, response);
         } else {
             request.setAttribute("news", news);
@@ -38,6 +39,7 @@ public class UpdateNews extends HttpServlet {
         News news = DBConnector.getNews(id);
 
         if (user.getId()!=news.getAuthor().getId()) {
+            request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/403.jsp").forward(request, response);
         } else {
 
@@ -45,9 +47,6 @@ public class UpdateNews extends HttpServlet {
             int category_id = Integer.parseInt(request.getParameter("newsCategory"));
             int language_id = Integer.parseInt(request.getParameter("newsLanguage"));
             String content = request.getParameter("newsContent");
-
-            content = "<p>" + content + "</p>";
-            content = content.replace("\n", "<p> </p>");
 
             DBConnector.updateNews(id, title, content, category_id, language_id, user.getId());
             response.sendRedirect("/project");

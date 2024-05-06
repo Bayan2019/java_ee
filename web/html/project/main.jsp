@@ -53,7 +53,6 @@
                                 <label>LANGUAGE</label>
                                 <select name="newsLanguage" class="form-control">
                                     <%
-                                        ArrayList<Language> languages = (ArrayList<Language>) request.getAttribute("languages");
                                         for (Language language: languages) {
                                     %>
                                     <option value="<%=language.getId()%>">

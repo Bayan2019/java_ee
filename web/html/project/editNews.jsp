@@ -44,7 +44,6 @@
                     <label>LANGUAGE</label>
                     <select name="newsLanguage" class="form-control">
                         <%
-                            ArrayList<Language> languages = (ArrayList<Language>) request.getAttribute("languages");
                             for (Language language: languages) {
                         %>
                         <option <%=news.getLanguage().getId()==language.getId() ? "selected" : ""%>
@@ -57,8 +56,7 @@
                     </select><br>
                     <label>CONTENT</label>
 
-                    <textarea rows="5" name="newsContent" class="form-control"><%=news.getContent()
-                            .substring(3, news.getContent().length()-4).replace("</p>\n\n<p>", "\n\n")%>
+                    <textarea rows="5" name="newsContent" class="form-control"><%=news.getContent()%>
                     </textarea>
                 </div>
                 <div class="modal-footer">

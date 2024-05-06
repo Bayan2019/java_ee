@@ -619,14 +619,15 @@ public class DBConnector {
 
         return news;
     }
-    public static ArrayList<News> getNewsByCategory(int category_id) {
+    public static ArrayList<News> getNewsByCategory(int category_id, int language_id) {
         ArrayList<News> news = new ArrayList<>();
 
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
-                    "WHERE language_id=1 AND category_id=?" +
+                    "WHERE language_id=? AND category_id=?" +
                     "ORDER BY post_date DESC;");
-            statement.setInt(1, category_id);
+            statement.setInt(1, language_id);
+            statement.setInt(2, category_id);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -648,20 +649,21 @@ public class DBConnector {
 
         return news;
     }
-    public static ArrayList<News> getNewsBySearch(String search) {
+    public static ArrayList<News> getNewsBySearch(String search, int language_id) {
         ArrayList<News> news = new ArrayList<>();
 
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
-                    "WHERE (language_id=1) AND " +
+                    "WHERE (language_id=?) AND " +
                     "((LOWER(title) LIKE ?) OR" +
                     "(LOWER(content) LIKE ?) OR" +
                     "(author_id IN (SELECT id FROM users " +
                     "WHERE LOWER(fullName) LIKE ?))) " +
                     "ORDER BY post_date DESC;");
-            statement.setString(1, "%"+search.toLowerCase()+"%");
+            statement.setInt(1, language_id);
             statement.setString(2, "%"+search.toLowerCase()+"%");
             statement.setString(3, "%"+search.toLowerCase()+"%");
+            statement.setString(4, "%"+search.toLowerCase()+"%");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -752,6 +754,52 @@ public class DBConnector {
             statement.setLong(6, id);
 
             statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Comment ///////////// Comment ///////////// Comment ////////////////
+    public static ArrayList<Comment> getAllCommentsNews(Long news_id) {
+        ArrayList<Comment> comments = new ArrayList<>();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM comments " +
+                    "WHERE news_id=? " +
+                    "ORDER BY post_date DESC;");
+            statement.setLong(1, news_id);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Comment c = new Comment();
+
+                c.setId(resultSet.getLong("id"));
+                c.setComment(resultSet.getString("comment"));
+                c.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                c.setAuthor(getUser(resultSet.getLong("author_id")));
+                c.setNews(DBConnector.getNews(resultSet.getLong("news_id")));
+
+                comments.add(c);
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return comments;
+    }
+    public static void addComment(String comment, Long author_id, Long news_id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO " +
+                    "comments (comment, author_id, news_id) " +
+                    "VALUES (?, ?, ?);");
+            statement.setString(1, comment);
+            statement.setLong(2, author_id);
+            statement.setLong(3, news_id);
+
+            statement.executeUpdate();
+
             statement.close();
         } catch (Exception e) {
             e.printStackTrace();

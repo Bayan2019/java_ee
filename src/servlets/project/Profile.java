@@ -19,9 +19,10 @@ public class Profile extends HttpServlet {
         User user = (User) request.getSession().getAttribute("currentUser");
 
         if (user==null) {
-            System.out.println(user);
+            request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/403.jsp").forward(request, response);
         } else {
+            request.setAttribute("languages", DBConnector.getAllLanguages());
             request.getRequestDispatcher("/html/project/profile.jsp").forward(request, response);
         }
     }
