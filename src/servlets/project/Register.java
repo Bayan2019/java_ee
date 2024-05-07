@@ -16,7 +16,9 @@ public class Register extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setAttribute("errorRegister", false);
+        request.setAttribute("languages", DBConnector.getAllLanguages());
+        request.setAttribute("errorRegisterMail", false);
+        request.setAttribute("errorRegisterPasswords", false);
 
         request.getRequestDispatcher("/html/project/register.jsp").forward(request, response);
     }
@@ -26,10 +28,18 @@ public class Register extends HttpServlet {
 
         String email = request.getParameter("projectRegisterEmail");
         String password = request.getParameter("projectRegisterPassword");
+        String password2 = request.getParameter("projectRegisterPassword2");
         String fullName = request.getParameter("projectRegisterFullName");
 
         if (DBConnector.getUserEmails().contains(email)) {
-            request.setAttribute("errorRegister", true);
+            request.setAttribute("languages", DBConnector.getAllLanguages());
+            request.setAttribute("errorRegisterMail", true);
+            request.setAttribute("errorRegisterPasswords", false);
+            request.getRequestDispatcher("/html/project/register.jsp").forward(request, response);
+        } else if (!password.equals(password2)) {
+            request.setAttribute("languages", DBConnector.getAllLanguages());
+            request.setAttribute("errorRegisterMail", false);
+            request.setAttribute("errorRegisterPasswords", true);
             request.getRequestDispatcher("/html/project/register.jsp").forward(request, response);
         } else {
             User user = new User(email, password, fullName);
