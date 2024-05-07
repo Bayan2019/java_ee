@@ -23,17 +23,20 @@
             <%
                 News news = (News) request.getAttribute("news");
             %>
-            <h3>
+            <h1 style="color<%=headerColor%>;">
                 <%=news.getTitle()%>
-            </h3>
-            <h5>
-                by <%=news.getAuthor().getFullName()%>
-            </h5>
-            <h6>
-                at <%=news.getPost_date().toString().split("\\.")[0]%>
-            </h6>
+            </h1>
+            <div class="row">
+                <span class="col text-start" style="color:<%=headerBackground%>;">
+                    by <strong><%=news.getAuthor().getFullName()%></strong>
+                </span>
+                <span class="col text-secondary text-end">
+                    <%=news.getPost_date().toString().split("\\.")[0]%>
+                </span>
+            </div>
+            <hr style="background-color: <%=headerColor%>; height: 5px">
             <div>
-                <%="<p>"+news.getContent().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
+                <%="<p>"+news.getContent().replace("\n", "</p>\n<p>")+"</p>"%>
             </div>
             <%
                 ArrayList<Comment> comments = (ArrayList<Comment>) request.getAttribute("comments");
@@ -82,7 +85,7 @@
                 <div class="talk-bubble">
                     <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
                     <div class="talktext">
-                        <%="<p>"+comment.getComment().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
+                        <%="<p>"+comment.getComment().replace("\n", "</p><p>")+"</p>"%>
                     </div>
                 </div><br>
             <%
@@ -91,7 +94,11 @@
                 <div class="talk-bubble-you">
                     <p class="text-secondary text-end sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
                     <div class="talktext-you">
-                        <%="<p>"+comment.getComment().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
+                        <%="<p>"+comment.getComment().replace("\n", "</p><p>")+"</p>"%>
+                        <form action="/project/delete-comment" method="post" style="border: none; float: right">
+                            <input type="hidden" name="id" value="<%=comment.getId()%>">
+                            <button class="btn-danger" style="font-size: 8px">DELETE</button>
+                        </form>
                     </div>
                 </div><br>
             <%

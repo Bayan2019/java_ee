@@ -19,22 +19,18 @@
         <%@include file="/vendor/headerProject.jsp"%>
         <%@include file="/vendor/navbarSearchLanguages.jsp"%>
         <main>
-            <%
-                News news = (News) request.getAttribute("news");
-            %>
-            <form action="/project/edit-news" method="post">
+            <form action="/project/add-news" method="post">
                 <div class="modal-body">
-                    <input type="hidden" name="newsId" value="<%=news.getId()%>">
+                    <input type="hidden" name="newsId">
                     <label>TITLE</label>
-                    <input type="text" name="newsTitle" value="<%=news.getTitle()%>" class="form-control" /> <br>
+                    <input type="text" name="newsTitle" class="form-control" /> <br>
                     <label>CATEGORY</label>
                     <select name="newsCategory" class="form-control">
                         <%
                             ArrayList<Category> categories = (ArrayList<Category>) request.getAttribute("categories");
                             for (Category category: categories) {
                         %>
-                        <option <%=news.getCategory().getId()==category.getId() ? "selected" : ""%>
-                                value="<%=category.getId()%>">
+                        <option value="<%=category.getId()%>">
                             <%=category.getName()%>
                         </option>
                         <%
@@ -46,8 +42,7 @@
                         <%
                             for (Language language: languages) {
                         %>
-                        <option <%=news.getLanguage().getId()==language.getId() ? "selected" : ""%>
-                                value="<%=language.getId()%>">
+                        <option value="<%=language.getId()%>">
                             <%=language.getName()%>
                         </option>
                         <%
@@ -56,12 +51,12 @@
                     </select><br>
                     <label>CONTENT</label>
 
-                    <textarea rows="5" name="newsContent" class="form-control"><%=news.getContent()%>
+                    <textarea rows="5" name="newsContent" class="form-control">
                     </textarea>
                 </div>
                 <div class="modal-footer">
-                    <a class="btn btn-secondary" href="/project/details?id=<%=news.getId()%>">CANCEL</a>
-                    <button type="submit" class="btn btn-primary">SAVE</button>
+                    <a class="btn btn-secondary" href="/project">CANCEL</a>
+                    <button type="submit" class="btn btn-primary">ADD NEWS</button>
                 </div>
             </form>
         </main>

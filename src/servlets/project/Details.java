@@ -23,7 +23,7 @@ public class Details extends HttpServlet {
         } else {
             request.setAttribute("languages", DBConnector.getAllLanguages());
             request.setAttribute("news", news);
-            request.setAttribute("comments", DBConnector.getAllCommentsNews(news.getId()));
+            request.setAttribute("comments", DBConnector.getAllCommentsOfNews(news.getId()));
             request.getRequestDispatcher("/html/project/details.jsp").forward(request, response);
         }
     }

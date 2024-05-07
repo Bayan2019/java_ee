@@ -23,56 +23,9 @@
                 if (user!=null) {
                     if (user.getRole_id()==1) {
                     %>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#formAddNews" class="btn">
+            <a href="/project/add-news" class="btn">
                 + Add News
-            </button>
-            <div class="modal" tabindex="-1" id="formAddNews">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">NEW NEWS</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="/project/add-news" method="post">
-                            <div class="modal-body">
-                                <label>TITLE</label>
-                                <input type="text" name="newsTitle" class="form-control" /> <br>
-                                <label>CATEGORY</label>
-                                <select name="newsCategory" class="form-control">
-                                    <%
-                                        ArrayList<Category> categories = (ArrayList<Category>) request.getAttribute("categories");
-                                        for (Category category: categories) {
-                                    %>
-                                    <option value="<%=category.getId()%>">
-                                        <%=category.getName()%>
-                                    </option>
-                                    <%
-                                        }
-                                    %>
-                                </select><br>
-                                <label>LANGUAGE</label>
-                                <select name="newsLanguage" class="form-control">
-                                    <%
-                                        for (Language language: languages) {
-                                    %>
-                                    <option value="<%=language.getId()%>">
-                                        <%=language.getName()%>
-                                    </option>
-                                    <%
-                                        }
-                                    %>
-                                </select><br>
-                                <label>CONTENT</label>
-                                <textarea rows="5" name="newsContent" class="form-control"></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                                <button type="submit" class="btn btn-primary">ADD</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            </a>
             <%
                     }
                 }

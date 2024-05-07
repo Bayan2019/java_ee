@@ -759,9 +759,37 @@ public class DBConnector {
             e.printStackTrace();
         }
     }
+    public static News getLastNewsOfAuthor(Long author_id) {
+        News news = new News();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM news " +
+                    "WHERE author_id=? " +
+                    "ORDER BY post_date DESC " +
+                    "LIMIT 1;");
+            statement.setLong(1, author_id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                news.setId(resultSet.getLong("id"));
+                news.setTitle(resultSet.getString("title"));
+                news.setContent(resultSet.getString("content"));
+                news.setPost_date(resultSet.getTimestamp("post_date"));
+                news.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
+                news.setLanguage(DBConnector.getLanguage(resultSet.getInt("language_id")));
+                news.setAuthor(getUser(resultSet.getLong("author_id")));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return news;
+    }
 
     // Comment ///////////// Comment ///////////// Comment ////////////////
-    public static ArrayList<Comment> getAllCommentsNews(Long news_id) {
+    public static ArrayList<Comment> getAllCommentsOfNews(Long news_id) {
         ArrayList<Comment> comments = new ArrayList<>();
 
         try {
@@ -778,7 +806,6 @@ public class DBConnector {
                 c.setComment(resultSet.getString("comment"));
                 c.setPost_date(resultSet.getTimestamp("post_date"));
                 c.setAuthor(getUser(resultSet.getLong("author_id")));
-                c.setNews(DBConnector.getNews(resultSet.getLong("news_id")));
 
                 comments.add(c);
             }
@@ -800,6 +827,65 @@ public class DBConnector {
 
             statement.executeUpdate();
 
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static Comment getLastCommentsOfAuthor(Long author_id) {
+        Comment comment = new Comment();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM comments " +
+                    "WHERE author_id=? " +
+                    "ORDER BY post_date DESC " +
+                    "LIMIT 1;");
+            statement.setLong(1, author_id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                comment.setId(resultSet.getLong("id"));
+                comment.setComment(resultSet.getString("comment"));
+                comment.setPost_date(resultSet.getTimestamp("post_date"));
+                comment.setAuthor(getUser(resultSet.getLong("author_id")));
+                comment.setNews(DBConnector.getNews(resultSet.getLong("news_id")));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return comment;
+    }
+    public static Comment getComment(Long id) {
+        Comment comment = new Comment();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM comments WHERE id=?;");
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                comment.setId(resultSet.getLong("id"));
+                comment.setNews(DBConnector.getNews(resultSet.getLong("news_id")));
+                comment.setAuthor(DBConnector.getUser(resultSet.getLong("author_id")));
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return comment;
+    }
+    public static void deleteComment(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM comments WHERE id=?;");
+
+            statement.setLong(1, id);
+
+            statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
             e.printStackTrace();
