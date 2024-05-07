@@ -187,3 +187,13 @@ Then we edit `users` table with queries:
 and
 >`ALTER TABLE users`\
 >`ADD COLUMN role_id INTEGER DEFAULT 2;`
+
+We created the table `comments`:
+
+>`CREATE TABLE comments(`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id BIGSERIAL PRIMARY KEY,`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`comment TEXT NOT NULL,`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`post_date TIMESTAMP DEFAULT NOW(),`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`author_id BIGINT REFERENCES users(id) NOT NULL,`\
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`news_id BIGINT REFERENCES news(id) NOT NULL`\
+>`);`
