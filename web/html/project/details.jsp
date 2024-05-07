@@ -82,7 +82,7 @@
                 <div class="talk-bubble">
                     <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
                     <div class="talktext">
-                        <%=comment.getComment()%>
+                        <%="<p>"+comment.getComment().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
                     </div>
                 </div><br>
             <%
@@ -91,7 +91,7 @@
                 <div class="talk-bubble-you">
                     <p class="text-secondary text-end sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
                     <div class="talktext-you">
-                        <%=comment.getComment()%>
+                        <%="<p>"+comment.getComment().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
                     </div>
                 </div><br>
             <%
@@ -107,7 +107,7 @@
                 <div class="talk-bubble">
                     <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
                     <div class="talktext">
-                        <%=comment.getComment()%>
+                        <%="<p>"+comment.getComment().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
                     </div>
                 </div><br>
             </div>
