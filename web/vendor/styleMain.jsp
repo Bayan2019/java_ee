@@ -142,10 +142,14 @@
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
         float: right;
-        border: 3px solid #a5be00;
+        border: 3px solid #679436;
     }
     .sec {
         margin-bottom: 1px;
         font-size: 12px;
+    }
+    .comments {
+        display: flex;
+        flex-direction: column;
     }
 </style>

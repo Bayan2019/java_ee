@@ -60,7 +60,7 @@
                     </textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                    <a class="btn btn-secondary" href="/project/details?id=<%=news.getId()%>">CLOSE</a>
                     <button type="submit" class="btn btn-primary">SAVE</button>
                 </div>
             </form>

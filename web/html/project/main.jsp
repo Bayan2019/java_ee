@@ -93,7 +93,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <%=n.getPost_date().toString()%>
+                    <%=n.getPost_date().toString().split("\\.")[0]%>
                 </div>
             </div>
             <%

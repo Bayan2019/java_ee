@@ -608,7 +608,7 @@ public class DBConnector {
                 n.setContent(resultSet.getString("content"));
                 n.setAuthor(getUser(resultSet.getLong("author_id")));
                 n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
-                n.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                n.setPost_date(resultSet.getTimestamp("post_date"));
 
                 news.add(n);
             }
@@ -638,7 +638,7 @@ public class DBConnector {
                 n.setContent(resultSet.getString("content"));
                 n.setAuthor(getUser(resultSet.getLong("author_id")));
                 n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
-                n.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                n.setPost_date(resultSet.getTimestamp("post_date"));
 
                 news.add(n);
             }
@@ -674,7 +674,7 @@ public class DBConnector {
                 n.setContent(resultSet.getString("content"));
                 n.setAuthor(getUser(resultSet.getLong("author_id")));
                 n.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
-                n.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                n.setPost_date(resultSet.getTimestamp("post_date"));
 
                 news.add(n);
             }
@@ -700,7 +700,7 @@ public class DBConnector {
                 news.setCategory(DBConnector.getCategory(resultSet.getInt("category_id")));
                 news.setLanguage(DBConnector.getLanguage(resultSet.getInt("language_id")));
                 news.setContent(resultSet.getString("content"));
-                news.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                news.setPost_date(resultSet.getTimestamp("post_date"));
                 news.setAuthor(DBConnector.getUser(resultSet.getLong("author_id")));
             }
             statement.close();
@@ -776,7 +776,7 @@ public class DBConnector {
 
                 c.setId(resultSet.getLong("id"));
                 c.setComment(resultSet.getString("comment"));
-                c.setPost_date(resultSet.getDate("post_date").toLocalDate());
+                c.setPost_date(resultSet.getTimestamp("post_date"));
                 c.setAuthor(getUser(resultSet.getLong("author_id")));
                 c.setNews(DBConnector.getNews(resultSet.getLong("news_id")));
 

@@ -1,6 +1,8 @@
 <%@ page import="db.News" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="db.Comment" %><%--
+<%@ page import="db.Comment" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="java.time.Instant" %><%--
   Created by IntelliJ IDEA.
   User: bayan
   Date: 4/21/24
@@ -28,12 +30,13 @@
                 by <%=news.getAuthor().getFullName()%>
             </h5>
             <h6>
-                at <%=news.getPost_date().toString()%>
+                at <%=news.getPost_date().toString().split("\\.")[0]%>
             </h6>
             <div>
                 <%="<p>"+news.getContent().replace("\n\n", "</p>\n\n<p>")+"</p>"%>
             </div>
             <%
+                ArrayList<Comment> comments = (ArrayList<Comment>) request.getAttribute("comments");
                 if (user!=null) {
                     if (user.getId()==news.getAuthor().getId()) {
                         %>
@@ -68,31 +71,45 @@
                     %>
             <form class="d-flex mx-lg-auto mt-3 header-search input-group" action="/project/add-comment" method="post">
                 <input type="hidden" name="commentNews" value="<%=news.getId()%>">
-                <input class="form-control me-lg-auto rounded" name="commentComment">
+                <textarea class="form-control me-lg-auto rounded" name="commentComment"></textarea>
                 <button type="submit" class="btn">Add Comment</button>
             </form>
+            <div class="comments">
             <%
-                }
+                    for (Comment comment:comments) {
+                        if (user.getId() != comment.getAuthor().getId()) {
             %>
+                <div class="talk-bubble">
+                    <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
+                    <div class="talktext">
+                        <%=comment.getComment()%>
+                    </div>
+                </div><br>
             <%
-                ArrayList<Comment> comments = (ArrayList<Comment>) request.getAttribute("comments");
-                for (Comment comment:comments) {
-                    if (user.getId() != comment.getAuthor().getId()) {
+                        } else {
                         %>
-            <div class="talk-bubble">
-                <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date()%></p>
-                <div class="talktext">
-                    <%=comment.getComment()%>
-                </div>
+                <div class="talk-bubble-you">
+                    <p class="text-secondary text-end sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
+                    <div class="talktext-you">
+                        <%=comment.getComment()%>
+                    </div>
+                </div><br>
+            <%
+                        }
+                    }
+            %>
             </div>
-            <%
-                    } else {
-                        %>
-            <div class="talk-bubble-you">
-                <p class="text-secondary text-end sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date()%></p>
-                <div class="talktext-you">
-                    <%=comment.getComment()%>
-                </div>
+                <%
+                } else {
+                    for (Comment comment:comments) {
+                    %>
+            <div class="comments">
+                <div class="talk-bubble">
+                    <p class="text-secondary text-start sec"><strong><%=comment.getAuthor().getFullName()%></strong> - <%=comment.getPost_date().toString().split("\\.")[0]%></p>
+                    <div class="talktext">
+                        <%=comment.getComment()%>
+                    </div>
+                </div><br>
             </div>
             <%
                     }
