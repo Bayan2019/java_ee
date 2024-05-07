@@ -17,7 +17,20 @@
         <%@include file="/vendor/headerProject.jsp"%>
         <%@include file="/vendor/navbarSearchLanguages.jsp"%>
         <main>
-            <h1><%=user.getFullName()%></h1>
+            <h1>Welcome <%=user.getFullName()%>!</h1>
+
+            <table class="table-group-divider">
+                <tbody>
+                <tr>
+                    <td><strong>Email:  </strong></td>
+                    <td><%=user.getEmail()%></td>
+                </tr>
+                <tr>
+                    <td><strong>Role:  </strong></td>
+                    <td><%=(user.getRole_id()==1) ? "author" : "reader"%></td>
+                </tr>
+                </tbody>
+            </table>
         </main>
     </body>
 </html>
