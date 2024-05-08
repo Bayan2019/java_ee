@@ -32,7 +32,7 @@
         background-color: greenyellow;
     }
     main {
-        padding: 12px;
+        padding: 0 12px 12px 12px;
     }
     main form {
         border: <%=fieldsetColor%> solid;
@@ -151,5 +151,12 @@
     .comments {
         display: flex;
         flex-direction: column;
+    }
+    .vertical-navbar {
+        margin-top: 0;
+        background-color: <%=headerColor%>;
+    }
+    .vertical-navbar .nav-link {
+        color: <%=navbar2Background%>;
     }
 </style>

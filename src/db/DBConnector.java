@@ -296,6 +296,54 @@ public class DBConnector {
 
         return emails;
     }
+    public static void updateUserInfo(Long id, String fullName, int role_id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE users " +
+                    "SET fullName=?, role_id=? " +
+                    "WHERE id=?;");
+            statement.setString(1, fullName);
+            statement.setInt(2, role_id);
+            statement.setLong(3, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static String getUserPassword(Long id) {
+        String password="";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id=?;");
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                password = resultSet.getString("password");
+            }
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return password;
+    }
+    public static void updateUserPassword(Long id, String password) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE users " +
+                    "SET password=? " +
+                    "WHERE id=?;");
+            statement.setString(1, password);
+            statement.setLong(2, id);
+
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     // City ///////////// City ///////////// City ////////////////
     public static ArrayList<City> getAllCities() {
